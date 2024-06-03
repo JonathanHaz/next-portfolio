@@ -3,6 +3,7 @@ import styles from '../../styles/sidebar.module.css'
 import { motion } from "framer-motion";
 import { menuSlide } from "./anim";
 import Curve from "./Curve";
+import Magnetic from "../Magnetic";
 
 
 const Sidebar: React.FC = () => {
@@ -31,7 +32,7 @@ const Sidebar: React.FC = () => {
             <div className={styles.nav}>
             <ul>
                 {navItems.map((link, index) => (
-                    <li key={index}>
+                  <li key={index}>
                          <Link href={link.href}>
                             {link.title}
                         </Link>

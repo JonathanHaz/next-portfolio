@@ -1,4 +1,15 @@
-body{
+body {
   margin: 0;
   padding: 0;
+  color: var(--text);
+  background-color: var(--background);
+}
+
+:root {
+  --background: #F6F4EB;
+  --primary: #EABE6C;
+  --secondary: #749BC2;
+  --text: #4682A9;
+  --white: #FFFFFF;
+  --black: #000000;
 }
