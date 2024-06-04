@@ -35,21 +35,32 @@
 }
 
 .menu .body .nav ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.menu .body .nav ul li{
-    transition: all 0.4s ease-in-out;
-    margin-bottom: 20px; 
-
-}
-
-.menu .body .nav ul li:hover {
-    list-style-type:disc;
     color: var(--primary);
-    margin-block: 40px; 
+    transition: all 0.4s ease-in-out;
+    padding: 0;
+    position: relative;
+}
 
+.menu .body .nav ul li {
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 20px; 
+    list-style-type: none;
+}
+.menu .body .nav ul li:hover{
+    transform: translateX(10px);
+}
+
+.menu .body .nav ul li::before {
+    content: "•";
+    color: var(--primary);
+    display: inline-block;
+    margin-right: 10px;
+    transform: scale(0);
+    transition: transform 0.4s ease-in-out;
+}
+
+.menu .body .nav ul li:hover::before {
+    transform: scale(1);
 }
 
 .menu .body .nav a:hover {

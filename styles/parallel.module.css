@@ -6,6 +6,8 @@
     white-space: nowrap;
     display: flex;
     flex-wrap: nowrap;
+  font-family: 'Roboto';
+
   }
   
   .parallax .scroller {
@@ -16,12 +18,15 @@
     white-space: nowrap;
     display: flex;
     flex-wrap: nowrap;
+    text-shadow: 4px 4px 6px rgb(7, 8, 12);
+    
   }
   
   .parallax span {
     display: block;
     margin-right: 30px;
-    color: rgb(33, 58, 82);
+    color: rgb(202, 209, 216);
+    
   }
 
   .container {

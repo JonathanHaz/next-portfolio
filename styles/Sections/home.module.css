@@ -1,17 +1,50 @@
-.container{
+.container {
     margin: 0;
     padding: 0;
     background-color: var(--background);
-    background-image: url('../../public/prof.png') ;
     width: 100vw;
     height: 100vh;
-    top: 0;
     position: sticky;
-    background-repeat: no-repeat;
-    background-position:bottom;
-    background-size: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+  font-family: 'Roboto';
+
 }
 
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../public/background.png') ;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 53%;
+    filter: drop-shadow(25px 4px 10px #080836a9);
+    z-index: -1;
+}
+
+.hero{
+    width: 80%;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    text-align: start;
+    flex-direction: column;
+}
+
+.hero h1{
+    font-size: 2rem;
+    font-weight: 700;
+
+}
+
+.hero h2{
+    font-size: 1.8rem;
+    font-weight: 600;
+}

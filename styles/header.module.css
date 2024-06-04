@@ -22,10 +22,31 @@
     align-items: center;
     justify-content: center;
     transition: all .5s;
+    position: relative;
+    z-index: 1;
 }
 
-.header .button:hover {
-    background-color: #5f67a0;
+
+
+.header .button::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    border-radius: 50%;
+    background-color: #3e4575;
+    transform: scale(0);
+    transition: transform 0.3s ease-in-out;
+    transform-origin: center;
+    overflow: hidden;
+}
+
+.header .button:hover::before,
+.header .button:focus::before {
+    transform: scale(1);
 }
 
 .header .burger {
