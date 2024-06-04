@@ -21,6 +21,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all .5s;
+}
+
+.header .button:hover {
+    background-color: #5f67a0;
 }
 
 .header .burger {
