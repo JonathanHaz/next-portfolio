@@ -11,7 +11,7 @@ const Skills: React.FC<HomeProps> = ({scrollYProgress}) => {
     const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
     return (
         <motion.div style={{scale,}} className={styles.container}>
-
+            <h1>CONTENT</h1>
         </motion.div>
     )
 }

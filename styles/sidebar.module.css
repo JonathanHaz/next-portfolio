@@ -1,6 +1,6 @@
 .menu {
     height: 100vh;
-    background-color: rgb(41, 41, 41);
+    background-color: var(--secondary);
     position: fixed;
     right: 0;
     top: 0;
@@ -31,7 +31,7 @@
 
 .menu .body .nav a {
     text-decoration: none;
-    color: var(--text);
+    color: var(--primary);
 }
 
 .menu .body .nav ul {
@@ -47,13 +47,13 @@
 
 .menu .body .nav ul li:hover {
     list-style-type:disc;
-    color: var(--textDark);
+    color: var(--primary);
     margin-block: 40px; 
 
 }
 
 .menu .body .nav a:hover {
-    color: var(--textDark);
+    color: var(--primary);
 
 }
 
