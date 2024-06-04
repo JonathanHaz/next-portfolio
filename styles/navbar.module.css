@@ -1,44 +1,56 @@
 .navbar {
-    width: 100vw;
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    height: 12vh;
-    background-color: black;
-    display: flex;
-    justify-content: space-between; 
-    align-items: center; 
-  }
-  
-  .logo {
-    margin-left: 20px;
-  }
+  width: 100vw;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  height: 12vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  .logo h1 {
-    font-size: 20px;
-  }
+.logo {
+  margin-left: 20px;
+}
 
-  .navbar ul {
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    padding: 0 20px;
-    margin: 0;
-  }
-  
-  .navbar li {
-    margin-right: 20px;
-  }
-  
-  .navbar a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    text-align: center;
-  }
-  
-  .navbar a:hover {
-    color: lightgray;
-  }
-  
+.logo h1 {
+  font-size: 20px;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 0 20px;
+  margin: 0;
+}
+
+.navbar li {
+  margin-right: 20px;
+  position: relative;
+}
+
+.navbar a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 18px;
+  text-align: center;
+  position: relative;
+}
+
+.navbar a:hover {
+  color: var(--textDark);
+}
+
+.navbar a:hover::before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: var(--textDark);
+  bottom: -22px; 
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+}

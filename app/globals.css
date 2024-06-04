@@ -3,6 +3,7 @@ body {
   padding: 0;
   color: var(--text);
   background-color: var(--background);
+  overflow-x: hidden;
 }
 
 :root {
@@ -10,6 +11,7 @@ body {
   --primary: #EABE6C;
   --secondary: #749BC2;
   --text: #4682A9;
+  --textDark: #295a7a;
   --white: #FFFFFF;
   --black: #000000;
 }

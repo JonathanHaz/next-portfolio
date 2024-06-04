@@ -1,5 +1,7 @@
+"use client"
 import Link from 'next/link';
-import styles from "../styles/navbar.module.css";
+import styles from '@/styles/navbar.module.css';
+import Magnetic from '../Magnetic';
 
 interface NavLink {
   href: string;
@@ -16,14 +18,18 @@ const Navbar: React.FC = () => {
   return (
     <nav className={styles.navbar}>
         <div className={styles.logo}>
-            <h1>&copy;Jonathan Hazan</h1>
+            <Magnetic>
+            <Link href={'/'}>©Jonathan Hazan</Link>
+            </Magnetic>
         </div>
       <ul>
         {links.map((link, index) => (
           <li key={index}>
+            <Magnetic>
             <Link href={link.href}>
               {link.label}
             </Link>
+            </Magnetic>
           </li>
         ))}
       </ul>
