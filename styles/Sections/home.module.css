@@ -1,3 +1,4 @@
+
 .container {
     margin: 0;
     padding: 0;
@@ -9,9 +10,21 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
-  font-family: 'Roboto';
+  position: relative;
+  background-image: url('../../public/background.png') ;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 53%;
+    font-family: 'DM Sans', sans-serif;
 
 }
+
+.resumeWrapper {
+    display: flex;
+    justify-content: center;
+   
+}
+
 
 .container::before {
     content: "";
@@ -25,26 +38,146 @@
     background-position: bottom;
     background-size: 53%;
     filter: drop-shadow(25px 4px 10px #080836a9);
-    z-index: -1;
+    pointer-events: none;
+    z-index: 0;
 }
 
 .hero{
     width: 80%;
     height: 20vh;
     display: flex;
-    justify-content: center;
-    align-items: flex-end;
+    justify-content: space-between;
+    align-items: center;
     text-align: start;
-    flex-direction: column;
+    flex-direction: row;
 }
+
+
+
+.resumeBTN {
+    display: flex;
+    align-items: center; 
+    justify-content: space-evenly;
+    background-color: var(--background);
+    color: var(--background);
+    width: 8.5em;
+    padding: 10px 20px;
+    height: 4.25em;
+    border-radius: 2.125em;
+    border: 0.5px solid var(--text);
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    transition: all 0.3s ease-in-out;
+    font-family: 'DM Sans', sans-serif;
+    
+}
+
+.resumeBTN:hover,
+.resumeBTN:focus {
+    color: var(--text);
+}
+
+.resumeBTN::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background-color: var(--textDark);
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out;
+    transform-origin: center;
+    overflow: hidden;
+    border-radius: 2.125em;
+
+}
+
+.resumeBTN:hover::before,
+.resumeBTN:focus::before {
+    transform: scale(0);
+
+}
+
+
+.resumeBTN img {
+    height: 20px;
+}
+
+
 
 .hero h1{
     font-size: 2rem;
     font-weight: 700;
+    font-family: 'DM Sans', sans-serif;
 
 }
 
-.hero h2{
-    font-size: 1.8rem;
+
+
+.touchContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 50vh;
+    margin-left: 5vw;
+    margin-bottom: 10vh;
+
+}
+
+.touchWrapper{
+    height: 50vh;
+    width: 20vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+}
+
+
+
+
+.touch{
+    background-color: var(--textDark);
+    color: white;
+    height: 18vh;
+    width: 18vh;
+    border-radius: 50%;
+    border: none;
+    position: relative;
+    cursor: pointer;
+    z-index: 0;
+    box-shadow: rgba(2, 20, 67, 0.772) 0px 5px 15px;
+
+}
+
+.touch h1{
+    font-size: 1.3rem;
     font-weight: 600;
+    text-align: center;
+}
+
+.touch::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    border-radius: 50%;
+    background-color: var(--secondary);
+    transform: scale(0);
+    transition: transform 0.3s ease-in-out;
+    transform-origin: center;
+    overflow: hidden;
+}
+
+.touch:hover::before,
+.touch:focus::before {
+    transform: scale(1);
 }

@@ -2,11 +2,11 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import Home from "@/components/Sections/Home";
-import Skills from "@/components/Sections/Skills";
 import { useEffect, useRef } from "react";
 import { useScroll } from "framer-motion";
 import Lenis from "lenis";
-import Work from "@/components/Sections/Work";
+import Work from "@/components/Sections/Work/Work";
+import Contact from "@/components/Sections/Contact";
 
 
 export default function page() {
@@ -32,9 +32,11 @@ export default function page() {
   <div  className={styles.container}>
     <div ref={container} className={styles.scrollContainer}>
     <Home scrollYProgress={scrollYProgress}/>
-    <Skills scrollYProgress={scrollYProgress}/>
+    <Work scrollYProgress={scrollYProgress}/>
     </div>
-    <Work/>
+    <div className={styles.contactWrapper}>
+    <Contact/>
+    </div>
   </div>
   )
 }
