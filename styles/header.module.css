@@ -2,7 +2,6 @@
     padding: 30px;
     position: fixed;
     right: 0;
-    z-index: 2;
     transition: transform 0.3s ease-in-out;
     transform: scale(0);
     z-index: 99;
@@ -82,3 +81,12 @@
     transform: rotate(-45deg);
     top: 0px;
 }
+
+@media screen and (max-width: 800px) {
+    .header .button {
+        width: 60px;
+        height: 60px;
+    }
+
+}
+

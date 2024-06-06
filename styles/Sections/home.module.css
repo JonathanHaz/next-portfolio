@@ -5,13 +5,12 @@
     background-color: var(--background);
     width: 100vw;
     height: 100vh;
-    position: sticky;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-  position: relative;
-  background-image: url('../../public/background.png') ;
+     position: relative;
+    background-image: url('../../public/background.png') ;
     background-repeat: no-repeat;
     background-position: bottom;
     background-size: 53%;
@@ -37,7 +36,7 @@
     background-repeat: no-repeat;
     background-position: bottom;
     background-size: 53%;
-    filter: drop-shadow(25px 4px 10px #080836a9);
+    filter: drop-shadow(25px 4px 10px rgba(10, 1, 83, 0.663));
     pointer-events: none;
     z-index: 0;
 }
@@ -64,18 +63,21 @@
     padding: 10px 20px;
     height: 4.25em;
     border-radius: 2.125em;
-    border: 0.5px solid var(--text);
+    border: none;
     cursor: pointer;
     position: relative;
     z-index: 0;
     transition: all 0.3s ease-in-out;
     font-family: 'DM Sans', sans-serif;
+    font-weight: 600 ;
     
 }
 
 .resumeBTN:hover,
 .resumeBTN:focus {
     color: var(--text);
+    border: 0.5px solid var(--text);
+
 }
 
 .resumeBTN::before{
@@ -106,16 +108,12 @@
     height: 20px;
 }
 
-
-
 .hero h1{
     font-size: 2rem;
     font-weight: 700;
     font-family: 'DM Sans', sans-serif;
 
 }
-
-
 
 .touchContainer{
     display: flex;
@@ -137,9 +135,6 @@
     flex-direction: column;
     gap: 30px;
 }
-
-
-
 
 .touch{
     background-color: var(--textDark);
@@ -180,4 +175,62 @@
 .touch:hover::before,
 .touch:focus::before {
     transform: scale(1);
+}
+
+
+
+/* MOBILE */
+
+
+@media screen and (max-width: 800px) {
+    .container {
+        background-size: 200%; 
+        width: 100vw; ;
+    }
+
+    .container::before {
+        background-size: 200%;
+    }
+
+    .hero {
+        flex-direction: row;
+        width: 90%; 
+        z-index: 1;
+        height: 80vh;
+    }
+
+    .touchContainer {
+        align-self: flex-start;
+        height: 50%;
+    }
+    .touchContainer img{
+        width: 80%;
+    }
+
+  
+    .touch h1{
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .touch {
+        width: 10vh; 
+        height: 10vh; 
+    }
+
+   
+
+    .text{
+        margin-right: 10vw;
+    }
+
+    .text h1 {
+        font-size: 1rem; 
+        color: var(--white);
+    }
+
+    .resumeBTN {
+        width: 80%; /* Occupy full width */
+    }
 }

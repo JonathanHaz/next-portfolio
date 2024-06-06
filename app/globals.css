@@ -5,9 +5,11 @@ body {
   padding: 0;
   color: var(--text);
   background-color: var(--background);
-  overflow-x: hidden;
   font-family: 'DM Sans', sans-serif;
+}
 
+body, html{
+  overflow-x: hidden;
 }
 
 :root {

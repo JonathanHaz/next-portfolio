@@ -20,31 +20,35 @@ const Home: React.FC<HomeProps> = ({ scrollYProgress }) => {
             window.scrollTo({ top: y, behavior: 'smooth' });
         }
     };
+
+    const redirectToResume = () => {
+        window.open('https://www.dropbox.com/scl/fi/f587ix1gguloxglakk8e3/Jonathan-Hazan-CV-English.pdf?rlkey=xs7dpx5fy72xxv7trvsoas415&st=tk5tao2j&dl=0', '_blank');
+    };
    
     return (
         <motion.div style={{ scale }} className={styles.container}>
             <div className={styles.hero}>
                 <div className={styles.touchContainer}>
-                    <Image src="/arrow.svg" alt="resume" width={80} height={80} />
+                    <Image src="/arrow.svg" alt="arrow" width={80} height={80} />
                     <div className={styles.touchWrapper}>
                         <Magnetic>
                             <button className={styles.touch}><h1>About Me</h1></button>
                         </Magnetic>
                         <Image
                             src="/mouse.svg"
-                            alt="resume"
+                            alt="mousedown"
                             width={80}
                             height={80}
-                            style={{ cursor: 'pointer' }} // Set cursor style to pointer
-                            onClick={scrollToWork} // Scroll to work on click
+                            style={{ cursor: 'pointer' }} 
+                            onClick={scrollToWork} 
                         />
                     </div>
                 </div>
                 <div className={styles.text}>
-                    <h2>Creative</h2>
+                    <h1>Creative</h1>
                     <h1>Fullstack Developer</h1>
                     <div className={styles.resumeWrapper}>
-                        <button className={styles.resumeBTN}>Resume <Image src="/cv.svg" alt="resume" width={20} height={15} /></button>
+                        <button onClick={redirectToResume} className={styles.resumeBTN}>Resume</button>
                     </div>
                 </div>
             </div>

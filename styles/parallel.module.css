@@ -42,4 +42,10 @@
     left: 0;
     overflow: hidden;
   }
+
+  @media screen and (max-width: 800px) {
+    .parallax .scroller {
+      font-size: 17.5vw;
+    }
+  }
   

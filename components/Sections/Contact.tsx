@@ -12,6 +12,11 @@ const Contact: React.FC = () => {
         offset: ["start end", "end end"]
     })
 
+
+    const handleWhatsAppClick = () => {
+        window.open('https://wa.me/972586775225', '_blank');
+    };
+
     const x = useTransform(scrollYProgress, [0, 1], [200, 0])
     const rotate = useTransform(scrollYProgress, [0, 1], [50, 0])
     const y = useTransform(scrollYProgress, [0, 1], [-100, 0])
@@ -37,7 +42,7 @@ const Contact: React.FC = () => {
             </div>
             <div className={styles.buttons}>
                 <button className={styles.mail}><a href="mailto:yonatanhazan1337@gmail.com">yonatanhazan1337@gmail.com</a></button>
-                <button className={styles.phone}>+972586775225</button>
+                <button onClick={handleWhatsAppClick} className={styles.phone}>+972586775225</button>
             </div>
         </div>
     )
