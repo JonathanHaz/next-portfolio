@@ -14,22 +14,22 @@ const Work: React.FC<WorkProps> = ({ scrollYProgress }) => {
   const projects = [
     {
       title1: "PokeCard",
-      src: "background.png",
+      src: "pokemon.jpg",
       title2: "Landing Page"
     },
     {
       title1: "Resume Builder",
-      src: "background.png",
+      src: "resume.jpg",
       title2: "Fullstack App"
     },
     {
       title1: "Movie App",
-      src: "background.png",
+      src: "movie.jpg",
       title2: "Frontend App"
     },
     {
       title1: "E-commerce",
-      src: "background.png",
+      src: "ecommerce.jpg",
       title2: "Fullstack App"
     }
   ];
