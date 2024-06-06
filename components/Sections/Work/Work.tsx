@@ -42,7 +42,7 @@ const Work: React.FC<WorkProps> = ({ scrollYProgress }) => {
       </div>
        <main className={styles.main}>
        <div className={styles.gallery}>
-         <p>Featured Work</p>
+         <p style={{color: "#CCCC"}}>Featured Work</p>
          {
           projects.map( project => {
             return <Project project={project}/>

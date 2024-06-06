@@ -37,6 +37,9 @@ const Sidebar: React.FC<SidebarProps> = ({ isActive, setIsActive }) => {
         <motion.div variants={menuSlide} initial="initial" animate="enter" exit="exit" className={styles.menu}>
             <div className={styles.body}>
                 <div className={styles.nav}>
+                    <div className={styles.header}>
+                        <p>Navigation</p>
+                    </div>
                     <ul>
                         {navItems.map((link, index) => (
                             <li key={index}>

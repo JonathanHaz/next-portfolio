@@ -1,10 +1,9 @@
 .menu {
     height: 100vh;
-    background-color: var(--secondary);
+    background-color: #0f212c;
     position: fixed;
     right: 0;
     top: 0;
-    color: white;
     z-index: 98;
 }
 
@@ -21,21 +20,24 @@
     font-size: 56px;
 }
 
-.menu .body .nav .header {
-    color: rgb(153, 153, 153);
-    border-bottom: 1px solid rgb(153, 153, 153);
+.header{
+    color: var(--background);
+    border-bottom: 1px solid var(--background);
     text-transform: uppercase;
-    font-size: 10px;
+    font-size: 11px;
     margin-bottom: 40px;
 }
 
+
+
 .menu .body .nav a {
     text-decoration: none;
-    color: var(--primary);
+    color: var(--background);
+    font-family: 'DM Sans', sans-serif;
+    
 }
 
 .menu .body .nav ul {
-    color: var(--primary);
     transition: all 0.4s ease-in-out;
     padding: 0;
     position: relative;
