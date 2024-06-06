@@ -8,11 +8,6 @@ import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const roboto = Roboto({
-  weight: ["300", "400", "500", "700"],
-  subsets: ['latin'],
-});
-
 export const metadata: Metadata = {
   title: "Jonathan Hazan • Portfolio",
   description: "Created by Jonathan Hazan",
