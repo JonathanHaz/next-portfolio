@@ -4,11 +4,11 @@ import gsap from 'gsap';
 import Magnetic from '@/components/Magnetic';
 
 interface RoundedButtonProps {
-    children?: ReactNode; // Adjusted to accept children
+    children?: ReactNode; 
     backgroundColor?: string;
 }
 
-const Rounded: React.FC<RoundedButtonProps> = ({ children, backgroundColor = "#455CE9", ...attributes }) => {
+const Rounded: React.FC<RoundedButtonProps> = ({ children, backgroundColor = "#295a7a", ...attributes }) => {
     const circle = useRef<HTMLDivElement>(null);
     let timeline = useRef<gsap.core.Timeline | null>(null);
     let timeoutId: NodeJS.Timeout | null = null;

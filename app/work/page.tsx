@@ -1,8 +1,10 @@
-
+import styles from '@/styles/pages/workp.module.css'
 
 const WorkPage: React.FC = () => {
     return (
-        <div></div>
+        <div>
+          PROJECTS
+        </div>
     )
 };
 

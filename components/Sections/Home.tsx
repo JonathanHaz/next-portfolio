@@ -15,7 +15,7 @@ const Home: React.FC<HomeProps> = ({ scrollYProgress }) => {
     const scrollToWork = () => {
         const workElement = document.getElementById('work');
         if (workElement) {
-            const yOffset = -80; // Adjust this value as needed
+            const yOffset = -80; 
             const y = workElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
             window.scrollTo({ top: y, behavior: 'smooth' });
         }
@@ -26,6 +26,7 @@ const Home: React.FC<HomeProps> = ({ scrollYProgress }) => {
     };
    
     return (
+
         <motion.div style={{ scale }} className={styles.container}>
             <div className={styles.hero}>
                 <div className={styles.touchContainer}>
