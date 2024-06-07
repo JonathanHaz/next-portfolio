@@ -3,7 +3,6 @@ import Image from 'next/image'
 import {motion, useScroll, useTransform} from 'framer-motion'
 import { useRef } from 'react'
 import Magnetic from '../Magnetic'
-import Stairs from '../Stairs/Stairs'
 
 const Contact: React.FC = () => {
 
@@ -24,7 +23,6 @@ const Contact: React.FC = () => {
 
 
     return (
-        <Stairs backgroundColor="white">
         <div ref={container} className={styles.container}>
             <div className={styles.wrapper}>
                     <Image src="/profilePic.png"  alt="resume" width={80} height={80} />
@@ -47,7 +45,6 @@ const Contact: React.FC = () => {
                 <button onClick={handleWhatsAppClick} className={styles.phone}>+972586775225</button>
             </div>
         </div>
-        </Stairs>
     )
 }
 

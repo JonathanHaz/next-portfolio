@@ -38,7 +38,6 @@ const ContactPage: React.FC = () => {
             </div>
             <div className={styles.section3}>
                 <Rounded>
-
                 <p>Send</p>
                 </Rounded>
             </div>
