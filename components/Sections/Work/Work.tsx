@@ -4,12 +4,18 @@ import styles from '@/styles/Sections/work.module.css';
 import Project from './Project';
 import Description from './Description';
 import Magnetic from '@/components/Magnetic';
+import { useRouter } from 'next/navigation';
 
 interface WorkProps {
   scrollYProgress: any
 }
 
 const Work: React.FC<WorkProps> = ({ scrollYProgress }) => {
+
+  const router = useRouter();
+  const handleWorkClick = () => {
+    router.push('/work');
+};
 
   const projects = [
     {
@@ -50,7 +56,7 @@ const Work: React.FC<WorkProps> = ({ scrollYProgress }) => {
         }
        </div>
             <Magnetic>
-            <button>Show More</button>
+            <button onClick={handleWorkClick}>Show More</button>
             </Magnetic>
        </main>
     </motion.div>

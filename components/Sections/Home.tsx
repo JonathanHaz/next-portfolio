@@ -4,6 +4,8 @@ import Parallel from '../Parallel';
 import Magnetic from '../Magnetic';
 import Image from 'next/image';
 import { useEffect } from 'react';
+import { useRouter } from 'next/navigation'
+
 
 interface HomeProps {
     scrollYProgress: any;
@@ -11,6 +13,13 @@ interface HomeProps {
 
 const Home: React.FC<HomeProps> = ({ scrollYProgress }) => {
     const scale = useTransform(scrollYProgress, [0, 1], [1, 0.1]);
+
+    const router = useRouter();
+    const handleAboutClick = () => {
+        router.push('/about');
+    };
+
+ 
 
     const scrollToWork = () => {
         const workElement = document.getElementById('work');
@@ -33,7 +42,7 @@ const Home: React.FC<HomeProps> = ({ scrollYProgress }) => {
                     <Image src="/arrow.svg" alt="arrow" width={80} height={80} />
                     <div className={styles.touchWrapper}>
                         <Magnetic>
-                            <button className={styles.touch}><h1>About Me</h1></button>
+                            <button onClick={handleAboutClick} className={styles.touch}><h1>About Me</h1></button>
                         </Magnetic>
                         <Image
                             src="/mouse.svg"

@@ -49,6 +49,7 @@
     align-items: center;
     text-align: start;
     flex-direction: row;
+    z-index: 1;
 }
 
 
@@ -106,11 +107,11 @@
 
 
 .hero h1{
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 700;
     font-family: 'DM Sans', sans-serif;
     text-shadow: 4px 4px 2px rgba(0, 8, 46, 0.69);
-
+    z-index: 1;
 }
 
 .touchContainer{
