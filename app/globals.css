@@ -20,4 +20,6 @@ body, html{
   --textDark: #295a7a;
   --white: #FFFFFF;
   --black: #000000;
+  --bg--black: #272727;
+  --text--black: #34353a;
 }

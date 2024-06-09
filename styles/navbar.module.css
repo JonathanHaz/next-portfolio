@@ -8,7 +8,7 @@
   justify-content: space-between;
   align-items: center;
   font-family: 'Roboto', 'sans-serif';
-
+  padding-inline: 20px;
 }
 
 .logo {
@@ -41,10 +41,26 @@
   font-size: 18px;
   text-align: center;
   position: relative;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+
 }
 
 .navbar a:hover {
   color: var(--textDark);
+}
+
+.navbar a::before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: var(--textDark);
+  bottom: -22px; 
+  left: 50%;
+  transform: scale(0) translateX(-50%);
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
 }
 
 .navbar a:hover::before {
@@ -55,8 +71,9 @@
   background-color: var(--textDark);
   bottom: -22px; 
   left: 50%;
-  transform: translateX(-50%);
+  transform: scale(1) translateX(-50%);
   border-radius: 50%;
+
 }
 
 
