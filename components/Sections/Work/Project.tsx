@@ -8,6 +8,7 @@ interface ProjectProps {
     title1: string;
     src: string;
     title2: string;
+    href: string;
   };
 }
 
@@ -23,10 +24,10 @@ const Project: React.FC<ProjectProps> = ({project}) => {
 
     const { title1, title2, src } = project;
     return (
-        <div onMouseEnter={() => {setIsActive(true)}} onMouseLeave={() => {setIsActive(false)}} className={styles.project}>
+        <div  onClick={() => window.open(project.href)} onMouseEnter={() => {setIsActive(true)}} onMouseLeave={() => {setIsActive(false)}} className={styles.project}>
             <p>{title1}</p>
-            <motion.div variants={anim} animate={isActive ? "open" : "closed"} className={styles.imgContainer}>
-                <img src={`/${src}`}></img>
+            <motion.div  variants={anim} animate={isActive ? "open" : "closed"} className={styles.imgContainer}>
+                <img src={src}></img>
             </motion.div>
             <p>{title2}</p>
         </div>

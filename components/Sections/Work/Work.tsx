@@ -21,22 +21,27 @@ const Work: React.FC<WorkProps> = ({ scrollYProgress }) => {
     {
       title1: "PokeCard",
       src: "pokemon.jpg",
-      title2: "Landing Page"
+      title2: "Landing Page",
+      href: "https://pokemon-seven-pi.vercel.app"
     },
     {
       title1: "Resume Builder",
       src: "resume.jpg",
-      title2: "Fullstack App"
+      title2: "Fullstack App",
+      href: "https://resume-558a0.web.app"
     },
     {
       title1: "Movie App",
       src: "movie.jpg",
-      title2: "Frontend App"
+      title2: "Frontend App",
+      href: "https://jonathanhaz.github.io/MovieProject"
+
     },
     {
-      title1: "E-commerce",
+      title1: "Market",
       src: "ecommerce.jpg",
-      title2: "Fullstack App"
+      title2: "Fullstack App",
+      href: "https://market-ecru-three.vercel.app"
     }
   ];
 

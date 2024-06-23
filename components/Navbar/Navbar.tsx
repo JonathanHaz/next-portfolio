@@ -11,7 +11,7 @@ interface NavLink {
 const Navbar: React.FC = () => {
   const links: NavLink[] = [
     { href: '/about', label: 'About' },
-    { href: '/work', label: 'Work' },
+    // { href: '/work', label: 'Work' },
     { href: '/contact', label: 'Contact' },
   ];
 
