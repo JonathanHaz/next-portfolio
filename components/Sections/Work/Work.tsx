@@ -60,9 +60,6 @@ const Work: React.FC<WorkProps> = ({ scrollYProgress }) => {
           })
         }
        </div>
-            <Magnetic>
-            <button onClick={handleWorkClick}>Show More</button>
-            </Magnetic>
        </main>
     </motion.div>
   );
