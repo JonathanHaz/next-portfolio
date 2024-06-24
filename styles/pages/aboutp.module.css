@@ -1,7 +1,8 @@
+/* Global Styles */
 .container {
     background-color: var(--background);
     position: relative;
-    height: 170vh;
+    height: 200vh;
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -31,7 +32,6 @@
     font-size: 3rem;
     text-align: center;
 }
-
 
 .about h2 {
     color: var(--black);
@@ -80,7 +80,6 @@
     display: flex;
     width: 30vw;
     align-self: flex-end;
-    position: relative;
 }
 
 .imageContainer img {
@@ -143,7 +142,6 @@
     width: 80vw;
     background-color: rgb(233, 231, 225);
     border-radius: 5px;
-    
 }
 
 .skillCategory {
@@ -164,7 +162,7 @@
     flex-wrap: wrap;
     justify-content: center;
     height: 20vh;
-    width: 10vw;
+    width: 20vw;
     gap: 20px;
 }
 
@@ -176,10 +174,10 @@
     filter: drop-shadow(10px 15px 10px rgba(0, 0, 0, 0.425));
 }
 
+/* Media Queries */
 @media (max-width: 800px) {
     .container {
-        gap: 5vh;
-        margin-top: 5vh;
+        height: 80%;
     }
     
     .aboutContainer {
@@ -222,26 +220,11 @@
     }
 
     .imageContainer {
-        width: 90%;
-        margin-top: 5vh;
+       display: none;
     }
 
-    .line svg {
-        width: 100%;
-    }
-
-    .line svg path {
-        stroke-width: 0.5px;
-    }
-
-    .line .box {
-        height: 30px;
-        top: -15px;
-    }
-
-    .line .box:hover {
-        height: 200px;
-        top: -125px;
+    .line  {
+       display: none;
     }
 
     .skillsContainer h1 {
@@ -256,11 +239,10 @@
 
     .skillCategory {
      width: 80%;
-    margin-bottom: 5vh;
+     margin-bottom: 5vh;
      background-color: rgb(177, 175, 175);
      height: 50%;
      border-radius: 10px;
-
     }
 
     .skillCategory h2 {
@@ -275,5 +257,94 @@
     .skills img {
         height: 60px;
         width: 60px;
+    }
+}
+
+/* Medium Devices */
+@media (min-width: 801px) and (max-width: 1300px) {
+    .aboutContainer {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .about {
+        width: 80%;
+        align-self: center;
+        text-align: center;
+    }
+
+    .about h1 {
+        font-size: 2.5rem;
+    }
+
+    .about h2 {
+        font-size: 1.4rem;
+    }
+
+    .about p {
+        font-size: 1rem;
+    }
+
+    .iconsContainer {
+        width: 80%;
+    }
+
+    .iconsContainer h1 {
+        font-size: 2.5rem;
+    }
+
+    .icons {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .icons img {
+        height: 100px;
+        width: 100px;
+    }
+
+    .imageContainer {
+       display:  none;
+
+    }
+
+    .line  {
+       display: none;
+    }
+
+    .skillsContainer h1 {
+        font-size: 2.5rem;
+    }
+
+    .skillsContainer{
+        margin-top: 20vh;
+    }
+
+    .skillsRow {
+        flex-direction: column;
+        width: 90%;
+        background-color: var(--background);
+    }
+
+    .skillCategory {
+     width: 90%;
+     margin-bottom: 5vh;
+     background-color: rgb(177, 175, 175);
+     height: auto;
+     border-radius: 10px;
+    }
+
+    .skillCategory h2 {
+        font-size: 1.8rem;
+    }
+
+    .skills {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .skills img {
+        height: 70px;
+        width: 70px;
     }
 }

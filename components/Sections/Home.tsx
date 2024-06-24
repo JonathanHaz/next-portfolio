@@ -5,7 +5,7 @@ import Magnetic from '../Magnetic';
 import Image from 'next/image';
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation'
-
+import Rounded from '../Rounded';
 
 interface HomeProps {
     scrollYProgress: any;
@@ -18,8 +18,6 @@ const Home: React.FC<HomeProps> = ({ scrollYProgress }) => {
     const handleAboutClick = () => {
         router.push('/about');
     };
-
- 
 
     const scrollToWork = () => {
         const workElement = document.getElementById('work');
@@ -35,7 +33,6 @@ const Home: React.FC<HomeProps> = ({ scrollYProgress }) => {
     };
    
     return (
-
         <motion.div style={{ scale }} className={styles.container}>
             <div className={styles.hero}>
                 <div className={styles.touchContainer}>
@@ -58,7 +55,9 @@ const Home: React.FC<HomeProps> = ({ scrollYProgress }) => {
                     <h1>Creative</h1>
                     <h1>Fullstack Developer</h1>
                     <div className={styles.resumeWrapper}>
-                        <button onClick={redirectToResume} className={styles.resumeBTN}>Resume</button>
+                        <Rounded onClick={redirectToResume}>
+                            <p>Resume</p>
+                        </Rounded>
                     </div>
                 </div>
             </div>

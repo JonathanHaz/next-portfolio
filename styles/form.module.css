@@ -51,6 +51,26 @@
     outline: none;
 }
 
+.send{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2vh;
+    color: white;
+}
+
+.send button{
+    color: var(--text);
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.send p{
+    color: rgb(255, 255, 255);
+}
+
+
 @media screen and (max-width: 800px) {
     .formcol{
         padding: 0;

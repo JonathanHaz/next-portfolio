@@ -14,9 +14,7 @@ const ContactPage: React.FC = () => {
             </div>
             <div className={styles.section2}>
                 <div className={styles.formContainer}>
-                    <form>
                     <Form/>
-                    </form>
                 </div>
                 <div className={styles.detailsContainer}>
                     <div className={styles.arrow}>
@@ -37,9 +35,7 @@ const ContactPage: React.FC = () => {
                 </div>
             </div>
             <div className={styles.section3}>
-                <Rounded>
-                <p>Send</p>
-                </Rounded>
+               
             </div>
         </div>
     )

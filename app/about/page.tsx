@@ -73,7 +73,6 @@ const AboutPage: React.FC = () => {
     const favoriteGames = [
         { src: '/er.png', alt: 'Elden Ring' },
         { src: '/gt.png', alt: 'Ghost Of Tsushima' },
-        { src: '/lol.png', alt: 'League Of Legends' },
         { src: '/ssdt.png', alt: 'Sekiro' }
     ];
 
@@ -93,6 +92,8 @@ const AboutPage: React.FC = () => {
                 { src: '/nodedotjs-color.svg', alt: 'Node.js' },
                 { src: '/express-color.svg', alt: 'Express' },
                 { src: '/mongodb-color.svg', alt: 'MongoDB' },
+                { src: '/prisma.svg', alt: 'Next.js' },
+
             ]
         },
         {

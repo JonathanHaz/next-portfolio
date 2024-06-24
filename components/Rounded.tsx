@@ -6,9 +6,10 @@ import Magnetic from '@/components/Magnetic';
 interface RoundedButtonProps {
     children?: ReactNode; 
     backgroundColor?: string;
+    onClick?: () => void; 
 }
 
-const Rounded: React.FC<RoundedButtonProps> = ({ children, backgroundColor = "#295a7a", ...attributes }) => {
+const Rounded: React.FC<RoundedButtonProps> = ({ children, onClick, backgroundColor = "#295a7a", ...attributes }) => {
     const circle = useRef<HTMLDivElement>(null);
     let timeline = useRef<gsap.core.Timeline | null>(null);
     let timeoutId: NodeJS.Timeout | null = null;
@@ -22,9 +23,7 @@ const Rounded: React.FC<RoundedButtonProps> = ({ children, backgroundColor = "#2
 
     const manageMouseEnter = () => {
         if (timeoutId) clearTimeout(timeoutId);
-        timeline.current?.tweenFromTo('enter', 'exit');
-        console.log("ddd");
-        
+        timeline.current?.tweenFromTo('enter', 'exit');        
     };
 
     const manageMouseLeave = () => {
@@ -35,7 +34,14 @@ const Rounded: React.FC<RoundedButtonProps> = ({ children, backgroundColor = "#2
 
     return (
         <Magnetic>
-            <div className={styles.roundedButton} style={{ overflow: "hidden" }} onMouseEnter={manageMouseEnter} onMouseLeave={manageMouseLeave} {...attributes}>
+            <div
+                className={styles.roundedButton}
+                style={{ overflow: "hidden" }}
+                onMouseEnter={manageMouseEnter}
+                onMouseLeave={manageMouseLeave}
+                onClick={onClick} // Attach the onClick event here
+                {...attributes}
+            >
                 {children}
                 <div ref={circle} style={{ backgroundColor }} className={styles.circle}></div>
             </div>
