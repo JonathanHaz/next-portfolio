@@ -131,13 +131,16 @@ const AboutPage: React.FC = () => {
                     <Image src="/aboutimage.jpg" alt="profilePic" width={500} height={700} />
                 </div>
             </div>
-
+            
+            <div className={styles.lineContainer}>
             <div className={styles.line}>
                 <div onMouseEnter={manageMouseEnter} onMouseMove={manageMouseMove} onMouseLeave={manageMouseLeave} className={styles.box}></div>
                 <svg>
                     <path ref={path}></path>
                 </svg>
             </div>
+            </div>
+         
 
             <div className={styles.skillsContainer}>
                 <h1>Skills</h1>

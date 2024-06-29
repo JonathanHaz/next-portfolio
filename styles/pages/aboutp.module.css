@@ -2,13 +2,12 @@
 .container {
     background-color: var(--background);
     position: relative;
-    height: 200vh;
+    height: 250vh;
     width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     font-family: 'DM Sans', sans-serif;
-    gap: 10vh;
     margin-top: 10vh;
 }
 
@@ -16,7 +15,7 @@
     display: flex;
     flex-direction: row;
     width: 100vw;
-    height: 80vh;
+    height: 100vh;
     justify-content: space-around;
 }
 
@@ -50,7 +49,6 @@
     flex-direction: column;
     width: 25vw;
     height: 40vh;
-    align-items: center;
     justify-content: center;
 }
 
@@ -69,8 +67,8 @@
 }
 
 .icons img {
-    height: 120px;
-    width: 120px;
+    height: 100px;
+    width: 100px;
     object-fit: cover;
     cursor: pointer;
     filter: drop-shadow(10px 15px 10px rgba(0, 0, 0, 0.425));
@@ -80,6 +78,7 @@
     display: flex;
     width: 30vw;
     align-self: flex-end;
+    
 }
 
 .imageContainer img {
@@ -89,7 +88,17 @@
     border-radius: 5px;
 }
 
+
 /* Curved Line */
+.lineContainer {
+    display: flex;
+    width: 100vw;
+    height: 40vh;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10vh;
+}
+
 .line {
     height: 1px;
     width: 80%;
@@ -177,7 +186,7 @@
 /* Media Queries */
 @media (max-width: 800px) {
     .container {
-        height: 80%;
+        margin-top: 0;
     }
     
     .aboutContainer {
@@ -209,11 +218,6 @@
         font-size: 2rem;
     }
 
-    .icons {
-        flex-wrap: wrap;
-        gap: 5px;
-    }
-
     .icons img {
         height: 80px;
         width: 80px;
@@ -223,8 +227,17 @@
        display: none;
     }
 
+    .lineContainer{
+        display: none;
+    }
+
     .line  {
        display: none;
+    }
+
+    .skillsContainer{
+        width: 100%;
+        margin-top: 15vh;
     }
 
     .skillsContainer h1 {
@@ -233,12 +246,12 @@
 
     .skillsRow {
         flex-direction: column;
-        width: 90%;
+        width: 75%;
         background-color: var(--background);
     }
 
     .skillCategory {
-     width: 80%;
+     width: 100%;
      margin-bottom: 5vh;
      background-color: rgb(177, 175, 175);
      height: 50%;

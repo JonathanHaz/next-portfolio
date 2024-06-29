@@ -3,6 +3,7 @@
     justify-content: center;
     color: white;
     text-align: center;
+    height: 40vh;
 
 }
 
@@ -39,6 +40,10 @@
 }
 
 @media screen and (max-width: 800px) {
+.description{
+    height: 100%;
+}
+
 .description .body p:nth-of-type(1) {
     font-size: 18px;
 }
@@ -46,7 +51,7 @@
     width: 95%;
 }
 .description .body p {
-    margin-block: 0px;
+    margin-block: 20px;
 }
 
 }

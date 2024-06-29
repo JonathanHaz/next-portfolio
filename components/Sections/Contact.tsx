@@ -40,7 +40,7 @@ const Contact: React.FC = () => {
                     </motion.div>
                     <motion.div style={{ x }}>
                         <Magnetic>
-                            <button onClick={handleContactClick}>Contact Me</button>
+                            <button onClick={handleContactClick}><p>Contact Me</p></button>
                         </Magnetic>
                     </motion.div>
                 </div>

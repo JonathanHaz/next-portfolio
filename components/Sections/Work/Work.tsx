@@ -56,7 +56,7 @@ const Work: React.FC<WorkProps> = ({ scrollYProgress }) => {
          <p style={{color: "#CCCC"}}>Featured Work</p>
          {
           projects.map( project => {
-            return <Project project={project}/>
+            return <Project key={project.title1} project={project}/>
           })
         }
        </div>
