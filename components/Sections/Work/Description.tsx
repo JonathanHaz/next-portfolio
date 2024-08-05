@@ -13,7 +13,7 @@ export default function Description() {
     return (
         <div ref={description} className={styles.description}>
             <div className={styles.body}>
-                <p>"
+                <p>
                 {
                     phrase.split(" ").map( (word, index) => {
                         return <span key={index}
@@ -24,7 +24,7 @@ export default function Description() {
                             </span>
                     })
                 }
-                "</p>
+                </p>
             </div>
         </div>
     )
