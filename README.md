@@ -3,7 +3,8 @@
 <body>
 
 <h1>Jonathan Hazan's Portfolio</h1>
-![Portfolio Showcase](https://github.com/user-attachments/assets/e13d6f4f-2d83-4a21-93ae-e9d76e756410)
+
+![Screenshot_7](https://github.com/user-attachments/assets/9d7dba16-90f0-456e-a365-fed1508f68ed)
 
 <h2>Overview</h2>
 <p>Welcome to my portfolio! I'm Jonathan Hazan, a full-stack developer with a passion for creating dynamic and engaging web experiences.
