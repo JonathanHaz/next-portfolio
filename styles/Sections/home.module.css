@@ -27,7 +27,6 @@
     color: white;
 }
 
-
 .container::before {
     content: "";
     position: absolute;
@@ -42,6 +41,7 @@
     filter: drop-shadow(25px 4px 10px rgba(10, 1, 83, 0.663));
     pointer-events: none;
     z-index: 0;
+    
 }
 
 .hero{
@@ -54,11 +54,6 @@
     flex-direction: row;
     z-index: 1;
 }
-
-
-
-
-
 
 .hero h1{
     font-size: 2.5rem;
@@ -184,6 +179,6 @@
     }
 
     .resumeBTN {
-        width: 80%; /* Occupy full width */
+        width: 80%;
     }
 }
