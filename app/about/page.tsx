@@ -143,15 +143,15 @@ const AboutPage: React.FC = () => {
             role: 'Full-Stack Developer Intern',
             duration: '6 months',
             description: 'Gained valuable real-world experience at a cutting-edge personal safety platform leveraging AI, voice recognition, and mobile technology.',
-            technologies: ['React', 'Node.js', 'AI Integration', 'Mobile Tech'],
+            technologies: ['Next.js', 'Firebase', 'Typescript', 'React Native'],
             color: '#6366f1'
         },
         {
             company: 'Freelance',
             role: 'Web Developer',
             duration: 'Ongoing',
-            description: 'Creating custom portfolios for content creators, TikTok influencers, and targeted landing pages for CRM and lead generation.',
-            technologies: ['Next.js', 'Custom Design', 'CRM Integration', 'Lead Gen'],
+            description: 'Creating custom portfolios for content creators, TikTok influencers, full stack websites for businesses, and targeted landing pages for CRM and lead generation.',
+            technologies: ['Next.js', 'Custom Design', 'Sanity CMS', 'HTML/CSS'],
             color: '#10b981'
         }
     ];

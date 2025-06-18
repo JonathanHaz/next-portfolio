@@ -42,7 +42,14 @@ const Work: React.FC<WorkProps> = ({ scrollYProgress }) => {
       src: "ecommerce.jpg",
       title2: "Fullstack App",
       href: "https://market-ecru-three.vercel.app"
+    },
+    {
+      title1: "Influencer Portfolio",
+      src: "gaya.png",
+      title2: "Portfolio",
+      href: "https://gayaasher.netlify.app/"
     }
+
   ];
 
   const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1]);

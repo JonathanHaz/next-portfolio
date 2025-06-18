@@ -49,7 +49,16 @@ const WorkPage: React.FC = () => {
       href: "https://market-ecru-three.vercel.app",
       description: "A full-featured e-commerce platform with shopping cart, user authentication, and payment integration.",
       tech: ["Next.js", "Prisma", "Stripe", "Tailwind CSS"]
+    },
+    {
+      title1: "Influencer Portfolio",
+      src: "gaya.png",
+      title2: "Portfolio",
+      href: "https://gayaasher.netlify.app/",
+      description: "A portfolio website for a content creator, telling about her life, hobbies, and videos.",
+      tech: ["HTML", "CSS", "JavaScript"]
     }
+    
   ];
 
   const containerVariants = {
