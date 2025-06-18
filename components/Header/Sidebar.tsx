@@ -15,10 +15,10 @@ const Sidebar: React.FC<SidebarProps> = ({ isActive, setIsActive }) => {
           title: "Home",
           href: "/",
         },
-        // {
-        //   title: "Work",
-        //   href: "/work",
-        // },
+        {
+          title: "Work",
+          href: "/work",
+        },
         {
           title: "About",
           href: "/about",

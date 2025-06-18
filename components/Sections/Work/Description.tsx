@@ -7,7 +7,7 @@ import { slideUp } from './anim';
 
 export default function Description() {
  
-    const phrase = "In the ever-evolving digital landscape, mediocrity is obsolete. Let's pioneer the path forward, shaping tomorrow's standards today with fearless innovation and relentless dedication."
+    const phrase = "\"Driven by curiosity, powered by code, and inspired by the endless possibilities of the web.\""
     const description = useRef(null);
     const isInView = useInView(description)
     return (

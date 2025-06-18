@@ -1,0 +1,181 @@
+.container {
+    background-color: var(--background);
+    padding: 4rem 2rem;
+    position: relative;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    perspective: 1000px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 4rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 4px 4px 2px rgba(0, 8, 46, 0.69);
+    color: var(--text);
+}
+
+.header p {
+    font-size: 1.2rem;
+    color: var(--textDark);
+    line-height: 1.6;
+}
+
+.servicesGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto 4rem;
+}
+
+.serviceCard {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.serviceCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--secondary), var(--primary));
+    transition: height 0.3s ease;
+}
+
+.serviceCard:hover {
+    transform: translateY(-10px) rotateX(5deg);
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 25px 50px -12px;
+}
+
+.serviceCard:hover::before {
+    height: 6px;
+}
+
+.serviceIcon {
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, var(--secondary), var(--primary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    transform-origin: center;
+}
+
+.serviceIcon:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.serviceIcon span {
+    font-size: 1.8rem;
+    transition: transform 0.3s ease;
+}
+
+.serviceCard h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--textDark);
+    transition: color 0.3s ease;
+}
+
+.serviceCard:hover h3 {
+    color: var(--primary);
+}
+
+.serviceCard p {
+    color: var(--textDark);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    transition: opacity 0.3s ease;
+}
+
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.feature {
+    background: var(--background);
+    color: var(--text);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: 1px solid #e5e5e5;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform-origin: center;
+}
+
+.feature:hover {
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* Pulse animation for icons */
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(99, 102, 241, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0); }
+}
+
+.serviceIcon:hover {
+    animation: pulse 1.5s infinite;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 2rem 1rem;
+    }
+    
+    .header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .header p {
+        font-size: 1rem;
+    }
+    
+    .servicesGrid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .serviceCard {
+        padding: 1.5rem;
+    }
+
+    .serviceCard:nth-child(odd),
+    .serviceCard:nth-child(even) {
+        animation: none; /* Disable float animation on mobile */
+    }
+    
+} 

@@ -5,6 +5,7 @@ import { useEffect, useRef } from "react";
 import { useScroll } from "framer-motion";
 import Lenis from "lenis";
 import Work from "@/components/Sections/Work/Work";
+import Services from "@/components/Sections/Services";
 import Contact from "@/components/Sections/Contact";
 
 
@@ -33,6 +34,7 @@ export default function page() {
     <Home scrollYProgress={scrollYProgress}/>
     <Work scrollYProgress={scrollYProgress}/>
     </div>
+    <Services/>
     <div className={styles.contactWrapper}>
     <Contact/>
     </div>

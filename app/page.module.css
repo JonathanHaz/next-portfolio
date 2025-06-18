@@ -1,6 +1,6 @@
 .container {
     background-color: #e7e5dd;
-    max-height: 320vh;
+    min-height: 100vh;
     max-width: 100vw;
 }
 

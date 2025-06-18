@@ -4,6 +4,6 @@
     left: -99px;
     width: 100px;
     height: 100%;
-    fill: #0f212c;
+    fill: var(--text);
     stroke: none;
 }

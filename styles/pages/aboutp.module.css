@@ -1,363 +1,798 @@
-/* Global Styles */
+/* ===== GLOBAL STYLES ===== */
 .container {
     background-color: var(--background);
-    position: relative;
-    height: 250vh;
     width: 100vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    min-height: 100vh;
     font-family: 'DM Sans', sans-serif;
-    margin-top: 10vh;
+    overflow-x: hidden;
 }
 
-.aboutContainer {
+/* ===== HERO SECTION ===== */
+.heroSection {
+    min-height: 100vh;
     display: flex;
-    flex-direction: row;
-    width: 100vw;
-    height: 100vh;
-    justify-content: space-around;
-}
-
-.about {
-    display: flex;
-    flex-direction: column;
-    width: 25vw;
-    height: 40vh;
-}
-
-.about h1 {
-    color: var(--black);
-    font-size: 3rem;
-    text-align: center;
-}
-
-.about h2 {
-    color: var(--black);
-    font-size: 1.5rem;
-}
-
-.about p {
-    color: var(--text--black);
-    font-size: 1rem;
-    font-weight: 450;
-}
-
-/* Game Icons */
-.iconsContainer {
-    display: flex;
-    flex-direction: column;
-    width: 25vw;
-    height: 40vh;
-    justify-content: center;
-}
-
-.iconsContainer h1 {
-    color: var(--text--black);
-    font-size: 3rem;
-}
-
-.icons {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-around;
     align-items: center;
-    gap: 10px;
+    justify-content: center;
+    padding: 0 40px;
+    background: linear-gradient(135deg, var(--background) 0%, rgba(99, 102, 241, 0.05) 100%);
+    position: relative;
+    overflow: hidden;
 }
 
-.icons img {
-    height: 100px;
-    width: 100px;
-    object-fit: cover;
-    cursor: pointer;
-    filter: drop-shadow(10px 15px 10px rgba(0, 0, 0, 0.425));
-}
-
-.imageContainer {
-    display: flex;
-    width: 30vw;
-    align-self: flex-end;
-    
-}
-
-.imageContainer img {
-    object-fit: contain;
+.heroBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    border-radius: 5px;
+    pointer-events: none;
+    z-index: 0;
 }
 
-
-/* Curved Line */
-.lineContainer {
-    display: flex;
-    width: 100vw;
-    height: 40vh;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10vh;
-}
-
-.line {
-    height: 1px;
-    width: 80%;
-    position: relative;
-    align-self: center;
-}
-
-.line svg {
-    width: 100vw;
-    height: 500px;
+.floatingElement {
     position: absolute;
-    top: -250px;
+    font-size: 3rem;
+    opacity: 0.1;
+    z-index: 0;
+    filter: blur(1px);
 }
 
-.line svg path {
-    stroke: rgb(0, 0, 0);
-    stroke-width: 1px;
-    fill: none;
+.floatingElement:first-child {
+    top: 15%;
+    left: 20%;
 }
 
-.line .box {
-    height: 40px;
+.heroLabel {
+    display: inline-block;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(16, 185, 129, 0.1));
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    border-radius: 50px;
+    padding: 12px 24px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.heroLabel span {
+    font-size: 0.9rem;
+    color: var(--textDark);
+    font-weight: 500;
+}
+
+.heroContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
     width: 100%;
+    gap: 80px;
     position: relative;
-    top: -20px;
     z-index: 1;
 }
 
-.line .box:hover {
-    height: 400px;
-    top: -250px;
+.heroText {
+    flex: 1;
+    max-width: 600px;
 }
 
-/* Skills */
-.skillsContainer {
+.heroText h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.heroText h2 {
+    font-size: 1.5rem;
+    color: var(--textDark);
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.heroText p {
+    font-size: 1.1rem;
+    color: var(--text--black);
+    line-height: 1.6;
+    font-weight: 400;
+    margin-bottom: 40px;
+}
+
+/* Hero Stats */
+.heroStats {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.statItem {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
 }
 
-.skillsContainer h1 {
-    color: var(--black);
-    font-size: 3rem;
+.statNumber {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--textDark);
+    line-height: 1;
+    margin-bottom: 5px;
+    background: linear-gradient(135deg, #6366f1, #10b981);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-.skillsRow {
+.statLabel {
+    font-size: 0.9rem;
+    color: var(--text--black);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Hero Actions */
+.heroActions {
     display: flex;
     gap: 20px;
-    justify-content: space-around;
-    width: 80vw;
-    background-color: rgb(233, 231, 225);
-    border-radius: 5px;
+    margin-top: 20px;
 }
 
-.skillCategory {
+.heroActions p {
+    color: white;
+    margin: 0;
+    font-weight: 500;
+}
+
+.heroImageContainer {
+    flex: 0 0 480px;
+    position: relative;
+}
+
+.heroImage {
+    width: 480px;
+    height: 600px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    position: relative;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(16, 185, 129, 0.1));
+    padding: 3px;
+    will-change: transform;
+}
+
+.heroImage::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(99, 102, 241, 0.1), transparent);
+    animation: shine 8s infinite;
+    z-index: 1;
+}
+
+@keyframes shine {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.parallaxImage {
+    width: 120%;
+    height: 120%;
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    z-index: 2;
+    border-radius: 17px;
+}
+
+.heroImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 17px;
+    position: relative;
+    z-index: 2;
+}
+
+
+
+/* Tech Badges */
+.techBadge {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.25) 0%, 
+        rgba(255, 255, 255, 0.15) 50%, 
+        rgba(255, 255, 255, 0.1) 100%);
+    backdrop-filter: blur(15px) saturate(150%);
+    -webkit-backdrop-filter: blur(15px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-top: 1px solid rgba(255, 255, 255, 0.6);
+    border-left: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 50px;
+    padding: 12px 16px;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6),
+        0 1px 2px rgba(0, 0, 0, 0.1);
+    z-index: 3;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--textDark);
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+.techBadge:hover {
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.35) 0%, 
+        rgba(255, 255, 255, 0.25) 50%, 
+        rgba(255, 255, 255, 0.2) 100%);
+    transform: translateY(-2px);
+    box-shadow: 
+        0 12px 40px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.7),
+        0 2px 4px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-top: 1px solid rgba(255, 255, 255, 0.7);
+    border-left: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.techBadge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.1) 0%, 
+        transparent 50%, 
+        rgba(255, 255, 255, 0.05) 100%);
+    border-radius: 50px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.techBadge:hover::before {
+    opacity: 1;
+}
+
+.techBadge img {
+    width: 24px !important;
+    height: 24px !important;
+    border-radius: 0 !important;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
+    transition: transform 0.3s ease;
+}
+
+.techBadge:hover img {
+    transform: scale(1.1);
+}
+
+/* ===== STORY SECTION ===== */
+.storySection {
+    padding: 80px 40px;
+    background-color: var(--background);
+}
+
+.storyContent {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.storyText h2 {
+    font-size: 3rem;
+    color: var(--black);
+    margin-bottom: 60px;
+    font-weight: 700;
+}
+
+.storyParagraphs {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.storyParagraphs p {
+    font-size: 1.1rem;
+    color: var(--text--black);
+    line-height: 1.8;
+    text-align: left;
+    font-weight: 400;
+}
+
+/* ===== PERSONALITY SECTION ===== */
+.personalitySection {
+    padding: 80px 40px;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.03) 0%, var(--background) 100%);
+}
+
+.personalitySection h2 {
+    font-size: 3rem;
+    color: var(--black);
+    text-align: center;
+    margin-bottom: 60px;
+    font-weight: 700;
+}
+
+.personalityGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 60px;
+}
+
+.personalityCard {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.personalityCard:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+}
+
+.cardIcon {
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    font-size: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.personalityCard h3 {
+    font-size: 1.5rem;
+    color: var(--black);
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.personalityCard p {
+    color: var(--text--black);
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* ===== GAMES SECTION ===== */
+.gamesSection {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.gamesSection h3 {
+    font-size: 2.5rem;
+    color: var(--black);
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+
+.gamesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+}
+
+.gameCard {
+    text-align: center;
+    padding: 30px 20px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.gameCard:hover {
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.gameCard img {
+    border-radius: 10px;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+}
+
+.gameCard p {
+    font-size: 1rem;
+    color: var(--textDark);
+    font-weight: 500;
+}
+
+/* ===== SKILLS SECTION ===== */
+.skillsSection {
+    padding: 120px 40px;
+    background-color: var(--background);
+}
+
+.skillsSection h2 {
+    font-size: 3rem;
+    color: var(--black);
+    text-align: center;
+    margin-bottom: 80px;
+    font-weight: 700;
+}
+
+.skillsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.skillCard {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.skillCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+}
+
+.skillHeader {
+    padding: 30px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.skillHeader h3 {
+    font-size: 1.5rem;
+    color: var(--black);
+    font-weight: 600;
+    margin: 0;
+}
+
+.skillItems {
+    padding: 40px 30px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.skillItem {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 20vw;
-    height: 40vh;
+    text-align: center;
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
 }
 
-.skillCategory h2 {
+.skillItem:hover {
+    background: rgba(255, 255, 255, 0.8);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.skillItem img {
+    margin-bottom: 10px;
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
+}
+
+.skillItem span {
+    font-size: 0.9rem;
     color: var(--textDark);
-    font-size: 2rem;
+    font-weight: 500;
 }
 
-.skills {
+/* ===== EXPERIENCE SECTION ===== */
+.experienceSection {
+    padding: 120px 40px;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.03) 0%, var(--background) 100%);
+}
+
+.experienceSection h2 {
+    font-size: 3rem;
+    color: var(--black);
+    text-align: center;
+    margin-bottom: 80px;
+    font-weight: 700;
+}
+
+.experienceGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.experienceCard {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.experienceCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+}
+
+.expHeader {
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 20px 20px 0 0;
+}
+
+.expHeader h3 {
+    font-size: 1.5rem;
+    color: var(--black);
+    font-weight: 600;
+    margin: 0;
+}
+
+.duration {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: var(--textDark);
+    font-weight: 500;
+}
+
+.experienceCard h4 {
+    font-size: 1.2rem;
+    color: var(--textDark);
+    margin: 20px 30px 15px;
+    font-weight: 500;
+}
+
+.experienceCard p {
+    color: var(--text--black);
+    line-height: 1.6;
+    margin: 0 30px 25px;
+    font-size: 1rem;
+}
+
+.technologies {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    height: 20vh;
-    width: 20vw;
-    gap: 20px;
+    gap: 10px;
+    padding: 0 30px 30px;
 }
 
-.skills img {
-    height: 75px;
-    width: 75px;
-    object-fit: cover;
-    cursor: pointer;
-    filter: drop-shadow(10px 15px 10px rgba(0, 0, 0, 0.425));
+.techTag {
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--textDark);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid rgba(99, 102, 241, 0.2);
 }
 
-/* Media Queries */
-@media (max-width: 800px) {
-    .container {
-        margin-top: 0;
-    }
-    
-    .aboutContainer {
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Tablets */
+@media (max-width: 1024px) {
+    .heroContent {
         flex-direction: column;
-    }
-
-    .about, .imageContainer {
-        width: 90%;
-        align-self: center;
-    }
-
-    .about h1 {
-        font-size: 2rem;
-    }
-
-    .about h2 {
-        font-size: 1.2rem;
-    }
-
-    .about p {
-        font-size: 0.9rem;
-    }
-
-    .iconsContainer {
-        width: 90%;
-    }
-
-    .iconsContainer h1 {
-        font-size: 2rem;
-    }
-
-    .icons img {
-        height: 80px;
-        width: 80px;
-    }
-
-    .imageContainer {
-       display: none;
-    }
-
-    .lineContainer{
-        display: none;
-    }
-
-    .line  {
-       display: none;
-    }
-
-    .skillsContainer{
-        width: 100%;
-        margin-top: 15vh;
-    }
-
-    .skillsContainer h1 {
-        font-size: 2rem;
-    }
-
-    .skillsRow {
-        flex-direction: column;
-        width: 75%;
-        background-color: var(--background);
-    }
-
-    .skillCategory {
-     width: 100%;
-     margin-bottom: 5vh;
-     background-color: rgb(177, 175, 175);
-     height: 50%;
-     border-radius: 10px;
-    }
-
-    .skillCategory h2 {
-        font-size: 1.5rem;
-    }
-
-    .skills {
-        width: 100%;
-        justify-content: center;
-    }
-
-    .skills img {
-        height: 60px;
-        width: 60px;
-    }
-}
-
-/* Medium Devices */
-@media (min-width: 801px) and (max-width: 1300px) {
-    .aboutContainer {
-        flex-direction: column;
-        height: auto;
-    }
-
-    .about {
-        width: 80%;
-        align-self: center;
+        gap: 60px;
         text-align: center;
     }
-
-    .about h1 {
-        font-size: 2.5rem;
+    
+    .heroText h1 {
+        font-size: 3rem;
     }
-
-    .about h2 {
-        font-size: 1.4rem;
+    
+    .heroStats {
+        justify-content: center;
+        gap: 30px;
     }
-
-    .about p {
-        font-size: 1rem;
-    }
-
-    .iconsContainer {
-        width: 80%;
-    }
-
-    .iconsContainer h1 {
-        font-size: 2.5rem;
-    }
-
-    .icons {
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-
-    .icons img {
-        height: 100px;
-        width: 100px;
-    }
-
-    .imageContainer {
-       display:  none;
-
-    }
-
-    .line  {
-       display: none;
-    }
-
-    .skillsContainer h1 {
-        font-size: 2.5rem;
-    }
-
-    .skillsContainer{
-        margin-top: 20vh;
-    }
-
-    .skillsRow {
-        flex-direction: column;
-        width: 90%;
-        background-color: var(--background);
-    }
-
-    .skillCategory {
-     width: 90%;
-     margin-bottom: 5vh;
-     background-color: rgb(177, 175, 175);
-     height: auto;
-     border-radius: 10px;
-    }
-
-    .skillCategory h2 {
-        font-size: 1.8rem;
-    }
-
-    .skills {
-        width: 100%;
+    
+    .heroActions {
         justify-content: center;
     }
+    
+    .heroImageContainer {
+        flex: none;
+    }
+    
+    .heroImage {
+        width: 350px;
+        height: 480px;
+    }
+    
+    .techBadge {
+        display: none;
+    }
+    
+    .floatingElement {
+        font-size: 2rem;
+    }
+    
+    .skillsGrid,
+    .experienceGrid {
+        grid-template-columns: 1fr;
+    }
+    
+    .personalityGrid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+    }
+}
 
-    .skills img {
-        height: 70px;
-        width: 70px;
+/* Mobile */
+@media (max-width: 768px) {
+    .heroSection,
+    .storySection,
+    .personalitySection,
+    .skillsSection,
+    .experienceSection {
+        padding: 80px 20px;
+    }
+    
+    .heroText h1 {
+        font-size: 2.5rem;
+    }
+    
+    .heroText h2 {
+        font-size: 1.2rem;
+    }
+    
+    .heroText p {
+        font-size: 1rem;
+    }
+    
+    .heroStats {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+    
+    .statItem {
+        align-items: center;
+        text-align: center;
+    }
+    
+    .statNumber {
+        font-size: 2rem;
+    }
+    
+    .heroActions {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+    
+    .heroImage {
+        width: 280px;
+        height: 400px;
+    }
+    
+    .techBadge {
+        display: none;
+    }
+    
+    .floatingElement {
+        font-size: 1.5rem;
+        opacity: 0.05;
+    }
+    
+    .storyText h2,
+    .personalitySection h2,
+    .skillsSection h2,
+    .experienceSection h2 {
+        font-size: 2.5rem;
+    }
+    
+    .gamesSection h3 {
+        font-size: 2rem;
+    }
+    
+    .gamesGrid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 20px;
+    }
+    
+    .gameCard {
+        padding: 20px 15px;
+    }
+    
+    .skillItems {
+        grid-template-columns: 1fr;
+    }
+    
+    .expHeader {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .personalityGrid {
+        grid-template-columns: 1fr;
+    }
+    
+    .personalityCard {
+        padding: 30px 20px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .heroSection,
+    .storySection,
+    .personalitySection,
+    .skillsSection,
+    .experienceSection {
+        padding: 60px 15px;
+    }
+    
+    .heroText h1 {
+        font-size: 2rem;
+    }
+    
+    .heroStats {
+        gap: 15px;
+    }
+    
+    .statNumber {
+        font-size: 1.8rem;
+    }
+    
+    .statLabel {
+        font-size: 0.8rem;
+    }
+    
+    .heroActions {
+        gap: 10px;
+    }
+    
+    .heroImage {
+        width: 200px;
+        height: 300px;
+    }
+    
+    .floatingElement {
+        display: none;
+    }
+    
+    .storyText h2,
+    .personalitySection h2,
+    .skillsSection h2,
+    .experienceSection h2 {
+        font-size: 2rem;
+    }
+    
+    .skillsGrid,
+    .experienceGrid {
+        grid-template-columns: 1fr;
+    }
+    
+    .skillCard,
+    .experienceCard {
+        margin: 0 10px;
     }
 }

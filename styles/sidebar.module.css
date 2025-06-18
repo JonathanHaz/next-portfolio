@@ -1,6 +1,6 @@
 .menu {
     height: 100vh;
-    background-color: #0f212c;
+    background-color: var(--text);
     position: fixed;
     right: 0;
     top: 0;
