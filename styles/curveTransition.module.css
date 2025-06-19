@@ -1,0 +1,38 @@
+.inner {
+  position: relative;
+}
+
+.page {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+.slide {
+  position: fixed;
+  top: 100vh;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+  z-index: 1;
+  border-radius: 0 0 50px 50px;
+}
+
+.slide::after {
+  content: '';
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+  border-radius: 0 0 50px 50px;
+}
+
+.pageContent {
+  position: relative;
+  z-index: 2;
+  background: transparent;
+} 

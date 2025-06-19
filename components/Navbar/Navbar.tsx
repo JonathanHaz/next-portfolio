@@ -15,18 +15,23 @@ const Navbar: React.FC = () => {
     { href: '/contact', label: 'Contact' },
   ];
 
+  // Set navigation flag when user clicks on links
+  const handleNavigation = () => {
+    sessionStorage.setItem('isNavigating', 'true');
+  };
+
   return (
     <nav className={styles.navbar}>
         <div className={styles.logo}>
             <Magnetic>
-            <Link href={'/'}>©Jonathan Hazan</Link>
+            <Link href={'/'} onClick={handleNavigation}>©Jonathan Hazan</Link>
             </Magnetic>
         </div>
       <ul>
         {links.map((link, index) => (
           <li key={index}>
             <Magnetic>
-            <Link href={link.href}>
+            <Link href={link.href} onClick={handleNavigation}>
               {link.label}
             </Link>
             </Magnetic>

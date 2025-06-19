@@ -1,6 +1,6 @@
 "use client"
-import { motion, useInView, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
-import { useRef, useEffect, useState } from "react";
+import { motion, useInView, useScroll, useTransform } from 'framer-motion';
+import { useRef } from "react";
 import Magnetic from '@/components/Magnetic';
 import Rounded from '@/components/Rounded';
 import styles from '@/styles/pages/aboutp.module.css';
@@ -14,24 +14,23 @@ const AboutPage: React.FC = () => {
     const skillsRef = useRef(null);
     const experienceRef = useRef(null);
     
-    // Simple scroll tracking for parallax
-    const [scrollY, setScrollY] = useState(0);
+    // Parallax using the same approach as Home page
+    const { scrollYProgress } = useScroll({
+        target: heroRef,
+        offset: ["start start", "end start"]
+    });
+
+    // Create parallax transform for content
+    const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
     
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrollY(window.scrollY);
-        };
-        
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    // Story section parallax
+    const { scrollYProgress: storyScrollProgress } = useScroll({
+        target: storyRef,
+        offset: ["start end", "end start"]
+    });
     
-    // Calculate parallax values based on scroll
-    const parallaxY = scrollY * 0.3;
-    const parallaxScale = 1 + (scrollY * 0.0003);
-    const parallaxOpacity = Math.max(0.3, 1 - (scrollY * 0.001));
+    const storyBackgroundY = useTransform(storyScrollProgress, [0, 1], ["0%", "30%"]);
     
-    const heroInView = useInView(heroRef, { once: true, amount: 0.3 });
     const storyInView = useInView(storyRef, { once: true, amount: 0.3 });
     const personalityInView = useInView(personalityRef, { once: true, amount: 0.3 });
     const skillsInView = useInView(skillsRef, { once: true, amount: 0.3 });
@@ -65,16 +64,6 @@ const AboutPage: React.FC = () => {
             y: 0,
             scale: 1,
             transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }
-        }
-    };
-
-    const imageVariants = {
-        hidden: { opacity: 0, x: 100, scale: 0.8 },
-        visible: { 
-            opacity: 1, 
-            x: 0,
-            scale: 1,
-            transition: { duration: 1, ease: "easeOut" }
         }
     };
 
@@ -163,9 +152,14 @@ const AboutPage: React.FC = () => {
                 ref={heroRef}
                 className={styles.heroSection}
                 initial="hidden"
-                animate={heroInView ? "visible" : "hidden"}
+                animate="visible"
                 variants={containerVariants}
             >
+                {/* Parallax Background Layer */}
+                <motion.div 
+                    className={styles.backgroundLayer}
+                    style={{ y: contentY }}
+                />
                 {/* Background decorative elements */}
                 <div className={styles.heroBackground}>
                     <motion.div 
@@ -267,13 +261,11 @@ const AboutPage: React.FC = () => {
                         </motion.div>
                     </motion.div>
                     
-                    <motion.div className={styles.heroImageContainer} variants={imageVariants}>
+                    <motion.div className={styles.heroImageContainer}>
                         <div className={styles.heroImage}>
                             <motion.div
                                 style={{
-                                    y: parallaxY,
-                                    scale: parallaxScale,
-                                    opacity: parallaxOpacity,
+                                    y: contentY,
                                 }}
                                 className={styles.parallaxImage}
                             >
@@ -349,6 +341,11 @@ const AboutPage: React.FC = () => {
                 animate={storyInView ? "visible" : "hidden"}
                 variants={containerVariants}
             >
+                {/* Parallax Background Layer */}
+                <motion.div 
+                    className={styles.storyBackgroundLayer}
+                    style={{ y: storyBackgroundY }}
+                />
                 <div className={styles.storyContent}>
                     <motion.div className={styles.storyText} variants={textVariants}>
                         <motion.h2 variants={textVariants}>My Journey</motion.h2>

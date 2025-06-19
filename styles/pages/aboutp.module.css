@@ -14,7 +14,6 @@
     align-items: center;
     justify-content: center;
     padding: 0 40px;
-    background: linear-gradient(135deg, var(--background) 0%, rgba(99, 102, 241, 0.05) 100%);
     position: relative;
     overflow: hidden;
 }
@@ -279,17 +278,45 @@
 .storySection {
     padding: 80px 40px;
     background-color: var(--background);
+    position: relative;
+    overflow: hidden;
+}
+
+.storyBackgroundLayer {
+    position: absolute;
+    top: -20%;
+    left: 0;
+    width: 100%;
+    height: 140%;
+    background-image: url('/journey.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+    will-change: transform;
+}
+
+.storyBackgroundLayer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
 }
 
 .storyContent {
     max-width: 800px;
     margin: 0 auto;
     text-align: center;
+    position: relative;
+    z-index: 2;
 }
 
 .storyText h2 {
-    font-size: 3rem;
-    color: var(--black);
+    font-size: 3.2rem;
+    color: var(--text--black);
     margin-bottom: 60px;
     font-weight: 700;
 }
@@ -300,8 +327,9 @@
 }
 
 .storyParagraphs p {
-    font-size: 1.1rem;
-    color: var(--text--black);
+    font-size: 1.3rem;
+    color: var(--white);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     line-height: 1.8;
     text-align: left;
     font-weight: 400;

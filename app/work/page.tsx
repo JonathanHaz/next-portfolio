@@ -19,20 +19,20 @@ const WorkPage: React.FC = () => {
 
   const projects: Project[] = [
     {
+      title1: "Voltride",
+      src: "voltridel.png",
+      title2: "Fullstack App",
+      href: "https://voltride-gules.vercel.app/",
+      description: "A modern website built with Next.js and Sanity CMS for content management, featuring dynamic content and responsive design.",
+      tech: ["Next.js", "TypeScript", "Sanity CMS"]
+    },
+    {
       title1: "PokeCard",
       src: "pokemon.jpg",
       title2: "Landing Page",
       href: "https://pokemon-seven-pi.vercel.app",
       description: "An interactive Pokemon card collection landing page featuring modern animations and responsive design.",
       tech: ["Next.js", "Spline", "Framer Motion", "TypeScript"]
-    },
-    {
-      title1: "Resume Builder",
-      src: "resume.jpg", 
-      title2: "Fullstack App",
-      href: "https://resume-558a0.web.app",
-      description: "A comprehensive resume builder application with real-time editing, multiple templates, and export functionality.",
-      tech: ["React", "Firebase", "JavaScript"]
     },
     {
       title1: "Movie App",
@@ -57,7 +57,23 @@ const WorkPage: React.FC = () => {
       href: "https://gayaasher.netlify.app/",
       description: "A portfolio website for a content creator, telling about her life, hobbies, and videos.",
       tech: ["HTML", "CSS", "JavaScript"]
-    }
+    },
+    {
+      title1: "Bfiber Landing Page",
+      src: "bfiber.png",
+      title2: "Landing Page",
+      href: "https://www.kamazeole.co.il/landing-bezeq/",
+      description: "A Landing Page for CRM purposes.",
+      tech: ["HTML", "CSS", "JavaScript", "API Integration"]
+    },
+    {
+      title1: "Resume Builder",
+      src: "resume.jpg", 
+      title2: "Fullstack App",
+      href: "https://resume-558a0.web.app",
+      description: "A comprehensive resume builder application with real-time editing, multiple templates, and export functionality.",
+      tech: ["React", "Firebase", "JavaScript"]
+    },
     
   ];
 

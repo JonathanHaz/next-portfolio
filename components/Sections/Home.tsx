@@ -1,18 +1,22 @@
 import styles from '@/styles/Sections/home.module.css';
-import { motion, useTransform } from 'framer-motion';
 import Parallel from '../Parallel';
 import Magnetic from '../Magnetic';
 import Image from 'next/image';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation'
 import Rounded from '../Rounded';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
-interface HomeProps {
-    scrollYProgress: any;
-}
+const Home: React.FC = () => {
+    const containerRef = useRef<HTMLDivElement>(null);
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start start", "end start"]
+    });
 
-const Home: React.FC<HomeProps> = ({ scrollYProgress }) => {
-    const scale = useTransform(scrollYProgress, [0, 1], [1, 0.1]);
+    // Create parallax transforms for different layers
+    const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+    const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]);
 
     const router = useRouter();
     const handleAboutClick = () => {
@@ -33,8 +37,18 @@ const Home: React.FC<HomeProps> = ({ scrollYProgress }) => {
     };
    
     return (
-        <motion.div style={{ scale }} className={styles.container}>
-            <div className={styles.hero}>
+        <div ref={containerRef} className={styles.container}>
+            {/* Parallax Background Layer */}
+            <motion.div 
+                className={styles.backgroundLayer}
+                style={{ y: backgroundY }}
+            />
+            
+            {/* Parallax Content */}
+            <motion.div 
+                className={styles.hero}
+                style={{ y: contentY }}
+            >
                 <div className={styles.touchContainer}>
                     <Image src="/arrow.svg" alt="arrow" width={80} height={80} />
                     <div className={styles.touchWrapper}>
@@ -60,9 +74,9 @@ const Home: React.FC<HomeProps> = ({ scrollYProgress }) => {
                         </Rounded>
                     </div>
                 </div>
-            </div>
+            </motion.div>
             <Parallel />
-        </motion.div>
+        </div>
     );
 };
 
