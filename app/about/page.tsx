@@ -5,8 +5,6 @@ import Magnetic from '@/components/Magnetic';
 import Rounded from '@/components/Rounded';
 import styles from '@/styles/pages/aboutp.module.css';
 import Image from 'next/image';
-import { Metadata } from 'next';
-import Head from 'next/head';
 
 const AboutPage: React.FC = () => {
     const containerRef = useRef(null);
@@ -148,18 +146,7 @@ const AboutPage: React.FC = () => {
     ];
 
     return (
-        <>
-            <Head>
-                <title>About Jonathan Hazan | Creative Fullstack Developer</title>
-                <meta name="description" content="Learn about Jonathan Hazan, a creative fullstack developer with experience at Relyon.ai, freelance projects, and expertise in React, Next.js, TypeScript, and modern web design." />
-                <meta name="keywords" content="Jonathan Hazan about, fullstack developer experience, Relyon.ai intern, freelance web developer, React developer story, creative developer background" />
-                <meta property="og:title" content="About Jonathan Hazan | Creative Fullstack Developer" />
-                <meta property="og:description" content="Learn about Jonathan Hazan's journey as a creative fullstack developer, from discovering design passion in high school to working with cutting-edge technologies." />
-                <meta property="og:type" content="profile" />
-                <meta name="twitter:title" content="About Jonathan Hazan | Creative Fullstack Developer" />
-                <meta name="twitter:description" content="Learn about Jonathan Hazan's journey as a creative fullstack developer, from discovering design passion in high school to working with cutting-edge technologies." />
-            </Head>
-            <div ref={containerRef} className={styles.container}>
+        <div ref={containerRef} className={styles.container}>
                 {/* Hero Section */}
                 <motion.section 
                     ref={heroRef}
@@ -516,7 +503,6 @@ const AboutPage: React.FC = () => {
                     </motion.div>
                 </motion.section>
             </div>
-        </>
     );
 }
 

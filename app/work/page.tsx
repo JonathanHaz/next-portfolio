@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import styles from '@/styles/pages/workp.module.css';
 import Image from 'next/image';
 import Rounded from '@/components/Rounded';
-import Head from 'next/head';
 
 interface Project {
   title1: string;
@@ -101,18 +100,7 @@ const WorkPage: React.FC = () => {
   };
 
   return (
-    <>
-      <Head>
-        <title>Portfolio & Work | Jonathan Hazan - Fullstack Developer Projects</title>
-        <meta name="description" content="Explore Jonathan Hazan's portfolio of fullstack web development projects including e-commerce apps, landing pages, React applications, and custom websites built with Next.js, TypeScript, and modern technologies." />
-        <meta name="keywords" content="Jonathan Hazan portfolio, fullstack developer projects, React projects, Next.js applications, e-commerce development, landing pages, web development work, TypeScript projects, custom websites" />
-        <meta property="og:title" content="Portfolio & Work | Jonathan Hazan - Fullstack Developer Projects" />
-        <meta property="og:description" content="Explore Jonathan Hazan's portfolio featuring innovative web applications, e-commerce platforms, and custom digital solutions." />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:title" content="Portfolio & Work | Jonathan Hazan - Fullstack Developer Projects" />
-        <meta name="twitter:description" content="Explore Jonathan Hazan's portfolio featuring innovative web applications, e-commerce platforms, and custom digital solutions." />
-      </Head>
-      <div className={styles.container}>
+    <div className={styles.container}>
         <div className={styles.header}>
           <motion.h1 
             initial={{ opacity: 0, y: -30 }}
@@ -203,7 +191,6 @@ const WorkPage: React.FC = () => {
           </div>
         </motion.div>
       </div>
-    </>
   );
 };
 

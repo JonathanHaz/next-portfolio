@@ -4,7 +4,6 @@ import "./globals.css";
 import Header from "@/components/Header/Header";
 import Navbar from "@/components/Navbar/Navbar";
 import AnimatedLayout from "@/components/AnimatedLayout";
-import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -94,8 +93,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Head>
-        <link rel="icon" href="/favicon.ico" />
+      <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet"></link>
@@ -148,7 +146,7 @@ export default function RootLayout({
             })
           }}
         />
-      </Head>
+      </head>
       <body className={inter.className}>
         <AnimatedLayout>
           <Navbar/>
