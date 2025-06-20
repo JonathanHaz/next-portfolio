@@ -150,8 +150,55 @@
     animation: pulse 1.5s infinite;
 }
 
+/* TABLET */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .container {
+        padding: 3rem 1.5rem;
+    }
+    
+    .header h1 {
+        font-size: 3rem;
+    }
+    
+    .header p {
+        font-size: 1.1rem;
+    }
+    
+    .servicesGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.75rem;
+        max-width: 900px;
+    }
+    
+    .serviceCard {
+        padding: 1.75rem;
+    }
+    
+    .serviceIcon {
+        width: 55px;
+        height: 55px;
+    }
+    
+    .serviceIcon span {
+        font-size: 1.6rem;
+    }
+    
+    .serviceCard h3 {
+        font-size: 1.4rem;
+    }
+    
+    .serviceCard p {
+        font-size: 0.9rem;
+    }
+    
+    .feature {
+        font-size: 0.75rem;
+        padding: 0.35rem 0.7rem;
+    }
+}
+
 /* Mobile Responsive */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
     .container {
         padding: 2rem 1rem;
     }

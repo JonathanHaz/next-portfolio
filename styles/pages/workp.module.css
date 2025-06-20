@@ -188,9 +188,12 @@
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 2rem;
   }
+  .rounded{
+    width: 50%;
+  }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .container {
     padding: 1rem;
   }
@@ -249,5 +252,8 @@
   
   .projectDescription {
     font-size: 0.9rem;
+  }
+  .rounded{
+    width: 80%;
   }
 }

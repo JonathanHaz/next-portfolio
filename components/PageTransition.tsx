@@ -14,6 +14,13 @@ const PageTransition: React.FC<PageTransitionProps> = ({ children }) => {
   const [hasNavigated, setHasNavigated] = useState(false);
   const previousPathname = useRef<string | null>(null);
 
+  // Extract route name from pathname
+  const getRouteName = (path: string) => {
+    if (path === '/') return 'HOME';
+    const routeName = path.replace('/', '').toUpperCase();
+    return routeName || 'HOME';
+  };
+
   useEffect(() => {
     // If this is the first time seeing this pathname, it's initial load
     if (previousPathname.current === null) {
@@ -77,6 +84,33 @@ const PageTransition: React.FC<PageTransitionProps> = ({ children }) => {
     }
   };
 
+  const textVariants = {
+    entering: {
+      opacity: 0,
+      y: 0,
+      transition: {
+        duration: 0.1,
+        ease: [0.25, 0.46, 0.45, 1]
+      }
+    },
+    covering: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: [0.25, 0.46, 0.45, 1]
+      }
+    },
+    exiting: {
+      opacity: 0,
+      y: 0,
+      transition: {
+        duration: 0.2,
+        ease: [0.25, 0.46, 0.45, 1]
+      }
+    }
+  };
+
   const pageVariants = {
     initial: {
       opacity: 0,
@@ -119,7 +153,27 @@ const PageTransition: React.FC<PageTransitionProps> = ({ children }) => {
             initial={{ y: '-100%' }}
             animate={overlayVariants[transitionState]}
             exit={{ y: '-100%' }}
-          />
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+          >
+            <motion.h1
+              variants={textVariants}
+              animate={transitionState}
+              style={{
+                color: '#fff',
+                fontSize: '4rem',
+                fontWeight: '700',
+                margin: 0,
+                letterSpacing: '0.1em',
+                fontFamily: 'system-ui, -apple-system, sans-serif'
+              }}
+            >
+              -{getRouteName(pathname)}-
+            </motion.h1>
+          </motion.div>
         )}
       </AnimatePresence>
     </div>

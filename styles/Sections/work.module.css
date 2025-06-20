@@ -42,3 +42,21 @@
 
   
   }
+
+/* TABLET */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .container {
+        height: 100vh;
+    }
+
+    .gallery {
+        width: 85vw;
+    }
+
+    .main button {
+        width: 8em;
+        height: 3.5em;
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}

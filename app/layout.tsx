@@ -9,6 +9,7 @@ import Head from "next/head";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://jonathanhazan.dev'),
   title: {
     default: "Jonathan Hazan • Creative Fullstack Developer & Designer",
     template: "%s | Jonathan Hazan - Portfolio"

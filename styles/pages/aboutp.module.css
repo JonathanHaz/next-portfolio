@@ -624,10 +624,19 @@
 
 /* Tablets */
 @media (max-width: 1024px) {
+    .heroSection {
+        padding: 40px 40px 80px;
+
+    }
+    
     .heroContent {
         flex-direction: column;
-        gap: 60px;
+        gap: 40px;
         text-align: center;
+    }
+
+    .heroLabel {
+        margin-top: 40px;
     }
     
     .heroText h1 {
@@ -645,15 +654,21 @@
     
     .heroImageContainer {
         flex: none;
+
     }
     
     .heroImage {
-        width: 350px;
-        height: 480px;
+        width: 300px;
+        height: 420px;
     }
     
     .techBadge {
-        display: none;
+        display: flex;
+        position: relative;
+        margin: 10px 5px;
+        font-size: 0.8rem;
+        padding: 10px 14px;
+        width: 30%;
     }
     
     .floatingElement {
@@ -672,7 +687,7 @@
 }
 
 /* Mobile */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .heroSection,
     .storySection,
     .personalitySection,

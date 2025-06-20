@@ -31,6 +31,7 @@
 .resumeWrapper {
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 
 .resumeWrapper p{
@@ -121,16 +122,77 @@
 
 
 
+/* TABLET */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .container {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .backgroundLayer {
+        background-size: 75%;
+        background-position: center bottom;
+    }
+
+    .hero {
+        width: 85%;
+        height: 40vh;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+        font-weight: 700;
+    }
+
+    .touchContainer {
+        margin-left: 3vw;
+        margin-bottom: 8vh;
+        height: 45vh;
+    }
+
+    .touchContainer img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .touchWrapper {
+        width: 25vw;
+        height: 45vh;
+        gap: 25px;
+    }
+
+    .touch {
+        width: 15vh;
+        height: 15vh;
+    }
+
+    .touch h1 {
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    .text {
+        margin-right: 5vw;
+    }
+
+    .resumeWrapper p {
+        font-size: 0.9rem;
+    }
+}
+
 /* MOBILE */
 
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 767px) {
     .container {
         width: 100vw;
     }
 
     .backgroundLayer {
-        background-size: 200%;
+        background-size: 150%;
     }
 
     .hero {
@@ -150,7 +212,7 @@
 
   
     .touch h1{
-        font-size: 0.8rem;
+        font-size: 0.6rem;
         font-weight: 600;
         text-align: center;
     }
@@ -159,8 +221,6 @@
         width: 10vh; 
         height: 10vh; 
     }
-
-   
 
     .text{
         margin-right: 10vw;
@@ -171,7 +231,7 @@
         color: var(--white);
     }
 
-    .resumeBTN {
-        width: 80%;
+    .resumeWrapper p{
+        font-size: 0.6rem;
     }
 }

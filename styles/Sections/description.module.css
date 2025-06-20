@@ -39,7 +39,21 @@
     font-weight: 300;
 }
 
-@media screen and (max-width: 800px) {
+/* TABLET */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .description .body p:nth-of-type(1) {
+        font-size: 24px;
+    }
+    .description .body p:nth-of-type(2) {
+        font-size: 16px;
+    }
+
+    .description .body p {
+        margin-block: 80px;
+    }
+}
+
+@media screen and (max-width: 767px) {
 .description{
     height: 100%;
 }
