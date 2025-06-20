@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import styles from '@/styles/pages/workp.module.css';
 import Image from 'next/image';
 import Rounded from '@/components/Rounded';
+import Head from 'next/head';
 
 interface Project {
   title1: string;
@@ -100,97 +101,109 @@ const WorkPage: React.FC = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <div className={styles.header}>
-        <motion.h1 
-          initial={{ opacity: 0, y: -30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className={styles.title}
-        >
-          My Work
-        </motion.h1>
-        <motion.p 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className={styles.subtitle}
-        >
-          A collection of projects showcasing my skills in web development
-        </motion.p>
-      </div>
-
-      <motion.div 
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className={styles.projectsGrid}
-      >
-        {projects.map((project, index) => (
-          <motion.div
-            key={project.title1}
-            variants={projectVariants}
-            className={styles.projectCard}
-            onMouseEnter={() => setHoveredProject(index)}
-            onMouseLeave={() => setHoveredProject(null)}
-            onClick={() => window.open(project.href, '_blank')}
+    <>
+      <Head>
+        <title>Portfolio & Work | Jonathan Hazan - Fullstack Developer Projects</title>
+        <meta name="description" content="Explore Jonathan Hazan's portfolio of fullstack web development projects including e-commerce apps, landing pages, React applications, and custom websites built with Next.js, TypeScript, and modern technologies." />
+        <meta name="keywords" content="Jonathan Hazan portfolio, fullstack developer projects, React projects, Next.js applications, e-commerce development, landing pages, web development work, TypeScript projects, custom websites" />
+        <meta property="og:title" content="Portfolio & Work | Jonathan Hazan - Fullstack Developer Projects" />
+        <meta property="og:description" content="Explore Jonathan Hazan's portfolio featuring innovative web applications, e-commerce platforms, and custom digital solutions." />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:title" content="Portfolio & Work | Jonathan Hazan - Fullstack Developer Projects" />
+        <meta name="twitter:description" content="Explore Jonathan Hazan's portfolio featuring innovative web applications, e-commerce platforms, and custom digital solutions." />
+      </Head>
+      <div className={styles.container}>
+        <div className={styles.header}>
+          <motion.h1 
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className={styles.title}
           >
-            <div className={styles.imageContainer}>
-              <Image
-                src={`/${project.src}`}
-                alt={project.title1}
-                width={400}
-                height={250}
-                className={styles.projectImage}
-              />
-              <motion.div 
-                className={styles.overlay}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: hoveredProject === index ? 1 : 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                <span className={styles.viewProject}>View Project</span>
-              </motion.div>
-            </div>
-            
-            <div className={styles.projectInfo}>
-              <div className={styles.projectHeader}>
-                <h3 className={styles.projectTitle}>{project.title1}</h3>
-                <span className={styles.projectType}>{project.title2}</span>
-              </div>
-              
-              <p className={styles.projectDescription}>
-                {project.description}
-              </p>
-              
-              <div className={styles.techStack}>
-                {project.tech.map((tech, techIndex) => (
-                  <span key={techIndex} className={styles.techTag}>
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        ))}
-      </motion.div>
-
-      <motion.div 
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.8 }}
-        className={styles.footer}
-      >
-        <p className={styles.footerText}>
-          Interested in working together? Let's create something amazing!
-        </p>
-        <div className={styles.rounded}>
-          <Rounded onClick={() => window.location.href = '/contact'}>
-            <p>Get In Touch</p>
-          </Rounded>
+            My Work
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className={styles.subtitle}
+          >
+            A collection of projects showcasing my skills in web development
+          </motion.p>
         </div>
-      </motion.div>
-    </div>
+
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className={styles.projectsGrid}
+        >
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.title1}
+              variants={projectVariants}
+              className={styles.projectCard}
+              onMouseEnter={() => setHoveredProject(index)}
+              onMouseLeave={() => setHoveredProject(null)}
+              onClick={() => window.open(project.href, '_blank')}
+            >
+              <div className={styles.imageContainer}>
+                <Image
+                  src={`/${project.src}`}
+                  alt={project.title1}
+                  width={400}
+                  height={250}
+                  className={styles.projectImage}
+                />
+                <motion.div 
+                  className={styles.overlay}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: hoveredProject === index ? 1 : 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <span className={styles.viewProject}>View Project</span>
+                </motion.div>
+              </div>
+              
+              <div className={styles.projectInfo}>
+                <div className={styles.projectHeader}>
+                  <h3 className={styles.projectTitle}>{project.title1}</h3>
+                  <span className={styles.projectType}>{project.title2}</span>
+                </div>
+                
+                <p className={styles.projectDescription}>
+                  {project.description}
+                </p>
+                
+                <div className={styles.techStack}>
+                  {project.tech.map((tech, techIndex) => (
+                    <span key={techIndex} className={styles.techTag}>
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className={styles.footer}
+        >
+          <p className={styles.footerText}>
+            Interested in working together? Let's create something amazing!
+          </p>
+          <div className={styles.rounded}>
+            <Rounded onClick={() => window.location.href = '/contact'}>
+              <p>Get In Touch</p>
+            </Rounded>
+          </div>
+        </motion.div>
+      </div>
+    </>
   );
 };
 

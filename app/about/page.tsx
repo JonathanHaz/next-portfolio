@@ -5,6 +5,8 @@ import Magnetic from '@/components/Magnetic';
 import Rounded from '@/components/Rounded';
 import styles from '@/styles/pages/aboutp.module.css';
 import Image from 'next/image';
+import { Metadata } from 'next';
+import Head from 'next/head';
 
 const AboutPage: React.FC = () => {
     const containerRef = useRef(null);
@@ -146,363 +148,375 @@ const AboutPage: React.FC = () => {
     ];
 
     return (
-        <div ref={containerRef} className={styles.container}>
-            {/* Hero Section */}
-            <motion.section 
-                ref={heroRef}
-                className={styles.heroSection}
-                initial="hidden"
-                animate="visible"
-                variants={containerVariants}
-            >
-                {/* Parallax Background Layer */}
-                <motion.div 
-                    className={styles.backgroundLayer}
-                    style={{ y: contentY }}
-                />
-                {/* Background decorative elements */}
-                <div className={styles.heroBackground}>
+        <>
+            <Head>
+                <title>About Jonathan Hazan | Creative Fullstack Developer</title>
+                <meta name="description" content="Learn about Jonathan Hazan, a creative fullstack developer with experience at Relyon.ai, freelance projects, and expertise in React, Next.js, TypeScript, and modern web design." />
+                <meta name="keywords" content="Jonathan Hazan about, fullstack developer experience, Relyon.ai intern, freelance web developer, React developer story, creative developer background" />
+                <meta property="og:title" content="About Jonathan Hazan | Creative Fullstack Developer" />
+                <meta property="og:description" content="Learn about Jonathan Hazan's journey as a creative fullstack developer, from discovering design passion in high school to working with cutting-edge technologies." />
+                <meta property="og:type" content="profile" />
+                <meta name="twitter:title" content="About Jonathan Hazan | Creative Fullstack Developer" />
+                <meta name="twitter:description" content="Learn about Jonathan Hazan's journey as a creative fullstack developer, from discovering design passion in high school to working with cutting-edge technologies." />
+            </Head>
+            <div ref={containerRef} className={styles.container}>
+                {/* Hero Section */}
+                <motion.section 
+                    ref={heroRef}
+                    className={styles.heroSection}
+                    initial="hidden"
+                    animate="visible"
+                    variants={containerVariants}
+                >
+                    {/* Parallax Background Layer */}
                     <motion.div 
-                        className={styles.floatingElement}
-                        animate={{ 
-                            y: [0, -20, 0],
-                            rotate: [0, 5, 0]
-                        }}
-                        transition={{ 
-                            duration: 6,
-                            repeat: Infinity,
-                            ease: "easeInOut"
-                        }}
-                    >
-                        <span>💻</span>
-                    </motion.div>
-                    <motion.div 
-                        className={styles.floatingElement}
-                        style={{ top: '20%', right: '15%' }}
-                        animate={{ 
-                            y: [0, 15, 0],
-                            rotate: [0, -5, 0]
-                        }}
-                        transition={{ 
-                            duration: 8,
-                            repeat: Infinity,
-                            ease: "easeInOut",
-                            delay: 1
-                        }}
-                    >
-                        <span>🎨</span>
-                    </motion.div>
-                    <motion.div 
-                        className={styles.floatingElement}
-                        style={{ bottom: '25%', left: '10%' }}
-                        animate={{ 
-                            y: [0, -10, 0],
-                            rotate: [0, 3, 0]
-                        }}
-                        transition={{ 
-                            duration: 7,
-                            repeat: Infinity,
-                            ease: "easeInOut",
-                            delay: 2
-                        }}
-                    >
-                        <span>⚡</span>
-                    </motion.div>
-                </div>
-
-                <div className={styles.heroContent}>
-                    <motion.div className={styles.heroText} variants={textVariants}>
-                        <motion.div className={styles.heroLabel} variants={textVariants}>
-                            <span>👋 Hello, I'm Jonathan</span>
-                        </motion.div>
-                        <motion.h1 variants={textVariants}>About Me</motion.h1>
-                        <motion.h2 variants={textVariants}>
-                            Full-Stack Developer & Creative Thinker
-                        </motion.h2>
-                        <motion.p variants={textVariants}>
-                            Born in France, based in Israel, passionate about creating digital experiences that matter.
-                        </motion.p>
-                        
-                        {/* Stats Section */}
-                        <motion.div className={styles.heroStats} variants={containerVariants}>
-                            <motion.div className={styles.statItem} variants={textVariants}>
-                                <span className={styles.statNumber}>6+</span>
-                                <span className={styles.statLabel}>Months at Relyon.ai</span>
-                            </motion.div>
-                            <motion.div className={styles.statItem} variants={textVariants}>
-                                <span className={styles.statNumber}>10+</span>
-                                <span className={styles.statLabel}>Projects Completed</span>
-                            </motion.div>
-                            <motion.div className={styles.statItem} variants={textVariants}>
-                                <span className={styles.statNumber}>2+</span>
-                                <span className={styles.statLabel}>Years Coding</span>
-                            </motion.div>
-                        </motion.div>
-
-                        {/* CTA Buttons */}
-                        <motion.div className={styles.heroActions} variants={containerVariants}>
-                            <motion.div variants={textVariants}>
-                                <Rounded onClick={() => {
-                                    const contactElement = document.getElementById('contact');
-                                    if (contactElement) {
-                                        contactElement.scrollIntoView({ behavior: 'smooth' });
-                                    }
-                                }}>
-                                    <p>Let's Connect</p>
-                                </Rounded>
-                            </motion.div>
-                            <motion.div variants={textVariants}>
-                                <Rounded onClick={() => {
-                                    window.open('https://www.dropbox.com/scl/fi/f587ix1gguloxglakk8e3/Jonathan-Hazan-CV-English.pdf?rlkey=xs7dpx5fy72xxv7trvsoas415&st=tk5tao2j&dl=0', '_blank');
-                                }}>
-                                    <p>View Resume</p>
-                                </Rounded>
-                            </motion.div>
-                        </motion.div>
-                    </motion.div>
-                    
-                    <motion.div className={styles.heroImageContainer}>
-                        <div className={styles.heroImage}>
-                            <motion.div
-                                style={{
-                                    y: contentY,
-                                }}
-                                className={styles.parallaxImage}
-                            >
-                                <Image 
-                                    src="/aboutimage.jpg" 
-                                    alt="Jonathan - Full-Stack Developer" 
-                                    width={480} 
-                                    height={600}
-                                    priority
-                                />
-                            </motion.div>
-                            {/* Tech stack floating badges */}
-                            <motion.div 
-                                className={styles.techBadge}
-                                style={{ top: '12%', right: '5%' }}
-                                animate={{ 
-                                    y: [0, -10, 0],
-                                    rotate: [0, 5, 0]
-                                }}
-                                transition={{ 
-                                    duration: 4,
-                                    repeat: Infinity,
-                                    ease: "easeInOut"
-                                }}
-                            >
-                                <Image src="/react-color.svg" alt="React" width={30} height={30} />
-                                <span>React</span>
-                            </motion.div>
-                            <motion.div 
-                                className={styles.techBadge}
-                                style={{ bottom: '20%', left: '8%' }}
-                                animate={{ 
-                                    y: [0, 8, 0],
-                                    rotate: [0, -3, 0]
-                                }}
-                                transition={{ 
-                                    duration: 5,
-                                    repeat: Infinity,
-                                    ease: "easeInOut",
-                                    delay: 1
-                                }}
-                            >
-                                <Image src="/nextdotjs-color.svg" alt="Next.js" width={30} height={30} />
-                                <span>Next.js</span>
-                            </motion.div>
-                            <motion.div 
-                                className={styles.techBadge}
-                                style={{ top: '45%', left: '5%' }}
-                                animate={{ 
-                                    y: [0, -5, 0],
-                                    rotate: [0, 2, 0]
-                                }}
-                                transition={{ 
-                                    duration: 6,
-                                    repeat: Infinity,
-                                    ease: "easeInOut",
-                                    delay: 2
-                                }}
-                            >
-                                <Image src="/nodedotjs-color.svg" alt="Node.js" width={30} height={30} />
-                                <span>Node.js</span>
-                            </motion.div>
-                        </div>
-                    </motion.div>
-                </div>
-            </motion.section>
-
-            {/* Story Section */}
-            <motion.section 
-                ref={storyRef}
-                className={styles.storySection}
-                initial="hidden"
-                animate={storyInView ? "visible" : "hidden"}
-                variants={containerVariants}
-            >
-                {/* Parallax Background Layer */}
-                <motion.div 
-                    className={styles.storyBackgroundLayer}
-                    style={{ y: storyBackgroundY }}
-                />
-                <div className={styles.storyContent}>
-                    <motion.div className={styles.storyText} variants={textVariants}>
-                        <motion.h2 variants={textVariants}>My Journey</motion.h2>
-                        <motion.div className={styles.storyParagraphs} variants={containerVariants}>
-                            <motion.p variants={textVariants}>
-                                I honed my coding skills at IITC College's bootcamp, where I discovered my true passion for full-stack development. This intensive program laid the foundation for my technical expertise and problem-solving approach.
-                            </motion.p>
-                            <motion.p variants={textVariants}>
-                                My journey in tech began with a 6-month internship at Relyon.ai, where I gained invaluable real-world experience working with cutting-edge technologies including AI, voice recognition, and mobile platforms.
-                            </motion.p>
-                            <motion.p variants={textVariants}>
-                                Today, I balance freelance projects creating custom portfolios for content creators and TikTok influencers while developing targeted landing pages for CRM and lead generation purposes.
-                            </motion.p>
-                        </motion.div>
-                    </motion.div>
-                </div>
-            </motion.section>
-
-            {/* Personality Section */}
-            <motion.section 
-                ref={personalityRef}
-                className={styles.personalitySection}
-                initial="hidden"
-                animate={personalityInView ? "visible" : "hidden"}
-                variants={containerVariants}
-            >
-                <motion.h2 variants={textVariants}>Beyond The Code</motion.h2>
-                <motion.div className={styles.personalityGrid} variants={containerVariants}>
-                    {personalityCards.map((card, index) => (
-                        <motion.div
-                            key={index}
-                            className={styles.personalityCard}
-                            variants={cardVariants}
-                            whileHover={{ y: -10, transition: { duration: 0.3 } }}
+                        className={styles.backgroundLayer}
+                        style={{ y: contentY }}
+                    />
+                    {/* Background decorative elements */}
+                    <div className={styles.heroBackground}>
+                        <motion.div 
+                            className={styles.floatingElement}
+                            animate={{ 
+                                y: [0, -20, 0],
+                                rotate: [0, 5, 0]
+                            }}
+                            transition={{ 
+                                duration: 6,
+                                repeat: Infinity,
+                                ease: "easeInOut"
+                            }}
                         >
-                            <div 
-                                className={styles.cardIcon}
-                                style={{ background: `linear-gradient(135deg, ${card.color}, ${card.color}90)` }}
-                            >
-                                <span>{card.icon}</span>
-                            </div>
-                            <h3>{card.title}</h3>
-                            <p>{card.description}</p>
+                            <span>💻</span>
                         </motion.div>
-                    ))}
-                </motion.div>
+                        <motion.div 
+                            className={styles.floatingElement}
+                            style={{ top: '20%', right: '15%' }}
+                            animate={{ 
+                                y: [0, 15, 0],
+                                rotate: [0, -5, 0]
+                            }}
+                            transition={{ 
+                                duration: 8,
+                                repeat: Infinity,
+                                ease: "easeInOut",
+                                delay: 1
+                            }}
+                        >
+                            <span>🎨</span>
+                        </motion.div>
+                        <motion.div 
+                            className={styles.floatingElement}
+                            style={{ bottom: '25%', left: '10%' }}
+                            animate={{ 
+                                y: [0, -10, 0],
+                                rotate: [0, 3, 0]
+                            }}
+                            transition={{ 
+                                duration: 7,
+                                repeat: Infinity,
+                                ease: "easeInOut",
+                                delay: 2
+                            }}
+                        >
+                            <span>⚡</span>
+                        </motion.div>
+                    </div>
 
-                {/* Favorite Games */}
-                <motion.div className={styles.gamesSection} variants={textVariants}>
-                    <motion.h3 variants={textVariants}>Favorite Games</motion.h3>
-                    <motion.div className={styles.gamesGrid} variants={containerVariants}>
-                        {favoriteGames.map((game, index) => (
+                    <div className={styles.heroContent}>
+                        <motion.div className={styles.heroText} variants={textVariants}>
+                            <motion.div className={styles.heroLabel} variants={textVariants}>
+                                <span>👋 Hello, I'm Jonathan</span>
+                            </motion.div>
+                            <motion.h1 variants={textVariants}>About Me</motion.h1>
+                            <motion.h2 variants={textVariants}>
+                                Full-Stack Developer & Creative Thinker
+                            </motion.h2>
+                            <motion.p variants={textVariants}>
+                                Born in France, based in Israel, passionate about creating digital experiences that matter.
+                            </motion.p>
+                            
+                            {/* Stats Section */}
+                            <motion.div className={styles.heroStats} variants={containerVariants}>
+                                <motion.div className={styles.statItem} variants={textVariants}>
+                                    <span className={styles.statNumber}>6+</span>
+                                    <span className={styles.statLabel}>Months at Relyon.ai</span>
+                                </motion.div>
+                                <motion.div className={styles.statItem} variants={textVariants}>
+                                    <span className={styles.statNumber}>10+</span>
+                                    <span className={styles.statLabel}>Projects Completed</span>
+                                </motion.div>
+                                <motion.div className={styles.statItem} variants={textVariants}>
+                                    <span className={styles.statNumber}>2+</span>
+                                    <span className={styles.statLabel}>Years Coding</span>
+                                </motion.div>
+                            </motion.div>
+
+                            {/* CTA Buttons */}
+                            <motion.div className={styles.heroActions} variants={containerVariants}>
+                                <motion.div variants={textVariants}>
+                                    <Rounded onClick={() => {
+                                        const contactElement = document.getElementById('contact');
+                                        if (contactElement) {
+                                            contactElement.scrollIntoView({ behavior: 'smooth' });
+                                        }
+                                    }}>
+                                        <p>Let's Connect</p>
+                                    </Rounded>
+                                </motion.div>
+                                <motion.div variants={textVariants}>
+                                    <Rounded onClick={() => {
+                                        window.open('https://www.dropbox.com/scl/fi/f587ix1gguloxglakk8e3/Jonathan-Hazan-CV-English.pdf?rlkey=xs7dpx5fy72xxv7trvsoas415&st=tk5tao2j&dl=0', '_blank');
+                                    }}>
+                                        <p>View Resume</p>
+                                    </Rounded>
+                                </motion.div>
+                            </motion.div>
+                        </motion.div>
+                        
+                        <motion.div className={styles.heroImageContainer}>
+                            <div className={styles.heroImage}>
+                                <motion.div
+                                    style={{
+                                        y: contentY,
+                                    }}
+                                    className={styles.parallaxImage}
+                                >
+                                    <Image 
+                                        src="/aboutimage.jpg" 
+                                        alt="Jonathan - Full-Stack Developer" 
+                                        width={480} 
+                                        height={600}
+                                        priority
+                                    />
+                                </motion.div>
+                                {/* Tech stack floating badges */}
+                                <motion.div 
+                                    className={styles.techBadge}
+                                    style={{ top: '12%', right: '5%' }}
+                                    animate={{ 
+                                        y: [0, -10, 0],
+                                        rotate: [0, 5, 0]
+                                    }}
+                                    transition={{ 
+                                        duration: 4,
+                                        repeat: Infinity,
+                                        ease: "easeInOut"
+                                    }}
+                                >
+                                    <Image src="/react-color.svg" alt="React" width={30} height={30} />
+                                    <span>React</span>
+                                </motion.div>
+                                <motion.div 
+                                    className={styles.techBadge}
+                                    style={{ bottom: '20%', left: '8%' }}
+                                    animate={{ 
+                                        y: [0, 8, 0],
+                                        rotate: [0, -3, 0]
+                                    }}
+                                    transition={{ 
+                                        duration: 5,
+                                        repeat: Infinity,
+                                        ease: "easeInOut",
+                                        delay: 1
+                                    }}
+                                >
+                                    <Image src="/nextdotjs-color.svg" alt="Next.js" width={30} height={30} />
+                                    <span>Next.js</span>
+                                </motion.div>
+                                <motion.div 
+                                    className={styles.techBadge}
+                                    style={{ top: '45%', left: '5%' }}
+                                    animate={{ 
+                                        y: [0, -5, 0],
+                                        rotate: [0, 2, 0]
+                                    }}
+                                    transition={{ 
+                                        duration: 6,
+                                        repeat: Infinity,
+                                        ease: "easeInOut",
+                                        delay: 2
+                                    }}
+                                >
+                                    <Image src="/nodedotjs-color.svg" alt="Node.js" width={30} height={30} />
+                                    <span>Node.js</span>
+                                </motion.div>
+                            </div>
+                        </motion.div>
+                    </div>
+                </motion.section>
+
+                {/* Story Section */}
+                <motion.section 
+                    ref={storyRef}
+                    className={styles.storySection}
+                    initial="hidden"
+                    animate={storyInView ? "visible" : "hidden"}
+                    variants={containerVariants}
+                >
+                    {/* Parallax Background Layer */}
+                    <motion.div 
+                        className={styles.storyBackgroundLayer}
+                        style={{ y: storyBackgroundY }}
+                    />
+                    <div className={styles.storyContent}>
+                        <motion.div className={styles.storyText} variants={textVariants}>
+                            <motion.h2 variants={textVariants}>My Journey</motion.h2>
+                            <motion.div className={styles.storyParagraphs} variants={containerVariants}>
+                                <motion.p variants={textVariants}>
+                                    I honed my coding skills at IITC College's bootcamp, where I discovered my true passion for full-stack development. This intensive program laid the foundation for my technical expertise and problem-solving approach.
+                                </motion.p>
+                                <motion.p variants={textVariants}>
+                                    My journey in tech began with a 6-month internship at Relyon.ai, where I gained invaluable real-world experience working with cutting-edge technologies including AI, voice recognition, and mobile platforms.
+                                </motion.p>
+                                <motion.p variants={textVariants}>
+                                    Today, I balance freelance projects creating custom portfolios for content creators and TikTok influencers while developing targeted landing pages for CRM and lead generation purposes.
+                                </motion.p>
+                            </motion.div>
+                        </motion.div>
+                    </div>
+                </motion.section>
+
+                {/* Personality Section */}
+                <motion.section 
+                    ref={personalityRef}
+                    className={styles.personalitySection}
+                    initial="hidden"
+                    animate={personalityInView ? "visible" : "hidden"}
+                    variants={containerVariants}
+                >
+                    <motion.h2 variants={textVariants}>Beyond The Code</motion.h2>
+                    <motion.div className={styles.personalityGrid} variants={containerVariants}>
+                        {personalityCards.map((card, index) => (
                             <motion.div
                                 key={index}
-                                className={styles.gameCard}
+                                className={styles.personalityCard}
                                 variants={cardVariants}
-                                whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
+                                whileHover={{ y: -10, transition: { duration: 0.3 } }}
                             >
-                                <Magnetic>
-                                    <Image 
-                                        src={game.src} 
-                                        alt={game.alt} 
-                                        width={120} 
-                                        height={120}
-                                    />
-                                </Magnetic>
-                                <p>{game.title}</p>
+                                <div 
+                                    className={styles.cardIcon}
+                                    style={{ background: `linear-gradient(135deg, ${card.color}, ${card.color}90)` }}
+                                >
+                                    <span>{card.icon}</span>
+                                </div>
+                                <h3>{card.title}</h3>
+                                <p>{card.description}</p>
                             </motion.div>
                         ))}
                     </motion.div>
-                </motion.div>
-            </motion.section>
 
-            {/* Skills Section */}
-            <motion.section 
-                ref={skillsRef}
-                className={styles.skillsSection}
-                initial="hidden"
-                animate={skillsInView ? "visible" : "hidden"}
-                variants={containerVariants}
-            >
-                <motion.h2 variants={textVariants}>Technical Skills</motion.h2>
-                <motion.div className={styles.skillsGrid} variants={containerVariants}>
-                    {skills.map((skillCategory, index) => (
-                        <motion.div
-                            key={index}
-                            className={styles.skillCard}
-                            variants={cardVariants}
-                        >
-                            <div 
-                                className={styles.skillHeader}
-                                style={{ borderBottom: `3px solid ${skillCategory.color}` }}
-                            >
-                                <h3>{skillCategory.category}</h3>
-                            </div>
-                            <div className={styles.skillItems}>
-                                {skillCategory.items.map((skill, i) => (
-                                    <motion.div
-                                        key={i}
-                                        className={styles.skillItem}
-                                        whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
-                                    >
-                                        <Magnetic>
-                                            <Image 
-                                                src={skill.src} 
-                                                alt={skill.alt} 
-                                                width={50} 
-                                                height={50}
-                                            />
-                                        </Magnetic>
-                                        <span>{skill.name}</span>
-                                    </motion.div>
-                                ))}
-                            </div>
+                    {/* Favorite Games */}
+                    <motion.div className={styles.gamesSection} variants={textVariants}>
+                        <motion.h3 variants={textVariants}>Favorite Games</motion.h3>
+                        <motion.div className={styles.gamesGrid} variants={containerVariants}>
+                            {favoriteGames.map((game, index) => (
+                                <motion.div
+                                    key={index}
+                                    className={styles.gameCard}
+                                    variants={cardVariants}
+                                    whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
+                                >
+                                    <Magnetic>
+                                        <Image 
+                                            src={game.src} 
+                                            alt={game.alt} 
+                                            width={120} 
+                                            height={120}
+                                        />
+                                    </Magnetic>
+                                    <p>{game.title}</p>
+                                </motion.div>
+                            ))}
                         </motion.div>
-                    ))}
-                </motion.div>
-            </motion.section>
+                    </motion.div>
+                </motion.section>
 
-            {/* Experience Section */}
-            <motion.section 
-                ref={experienceRef}
-                className={styles.experienceSection}
-                initial="hidden"
-                animate={experienceInView ? "visible" : "hidden"}
-                variants={containerVariants}
-            >
-                <motion.h2 variants={textVariants}>Professional Experience</motion.h2>
-                <motion.div className={styles.experienceGrid} variants={containerVariants}>
-                    {experiences.map((exp, index) => (
-                        <motion.div
-                            key={index}
-                            className={styles.experienceCard}
-                            variants={cardVariants}
-                            whileHover={{ y: -5, transition: { duration: 0.3 } }}
-                        >
-                            <div 
-                                className={styles.expHeader}
-                                style={{ background: `linear-gradient(135deg, ${exp.color}, ${exp.color}20)` }}
+                {/* Skills Section */}
+                <motion.section 
+                    ref={skillsRef}
+                    className={styles.skillsSection}
+                    initial="hidden"
+                    animate={skillsInView ? "visible" : "hidden"}
+                    variants={containerVariants}
+                >
+                    <motion.h2 variants={textVariants}>Technical Skills</motion.h2>
+                    <motion.div className={styles.skillsGrid} variants={containerVariants}>
+                        {skills.map((skillCategory, index) => (
+                            <motion.div
+                                key={index}
+                                className={styles.skillCard}
+                                variants={cardVariants}
                             >
-                                <h3>{exp.company}</h3>
-                                <span className={styles.duration}>{exp.duration}</span>
-                            </div>
-                            <h4>{exp.role}</h4>
-                            <p>{exp.description}</p>
-                            <div className={styles.technologies}>
-                                {exp.technologies.map((tech, i) => (
-                                    <span key={i} className={styles.techTag}>
-                                        {tech}
-                                    </span>
-                                ))}
-                            </div>
-                        </motion.div>
-                    ))}
-                </motion.div>
-            </motion.section>
-        </div>
+                                <div 
+                                    className={styles.skillHeader}
+                                    style={{ borderBottom: `3px solid ${skillCategory.color}` }}
+                                >
+                                    <h3>{skillCategory.category}</h3>
+                                </div>
+                                <div className={styles.skillItems}>
+                                    {skillCategory.items.map((skill, i) => (
+                                        <motion.div
+                                            key={i}
+                                            className={styles.skillItem}
+                                            whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+                                        >
+                                            <Magnetic>
+                                                <Image 
+                                                    src={skill.src} 
+                                                    alt={skill.alt} 
+                                                    width={50} 
+                                                    height={50}
+                                                />
+                                            </Magnetic>
+                                            <span>{skill.name}</span>
+                                        </motion.div>
+                                    ))}
+                                </div>
+                            </motion.div>
+                        ))}
+                    </motion.div>
+                </motion.section>
+
+                {/* Experience Section */}
+                <motion.section 
+                    ref={experienceRef}
+                    className={styles.experienceSection}
+                    initial="hidden"
+                    animate={experienceInView ? "visible" : "hidden"}
+                    variants={containerVariants}
+                >
+                    <motion.h2 variants={textVariants}>Professional Experience</motion.h2>
+                    <motion.div className={styles.experienceGrid} variants={containerVariants}>
+                        {experiences.map((exp, index) => (
+                            <motion.div
+                                key={index}
+                                className={styles.experienceCard}
+                                variants={cardVariants}
+                                whileHover={{ y: -5, transition: { duration: 0.3 } }}
+                            >
+                                <div 
+                                    className={styles.expHeader}
+                                    style={{ background: `linear-gradient(135deg, ${exp.color}, ${exp.color}20)` }}
+                                >
+                                    <h3>{exp.company}</h3>
+                                    <span className={styles.duration}>{exp.duration}</span>
+                                </div>
+                                <h4>{exp.role}</h4>
+                                <p>{exp.description}</p>
+                                <div className={styles.technologies}>
+                                    {exp.technologies.map((tech, i) => (
+                                        <span key={i} className={styles.techTag}>
+                                            {tech}
+                                        </span>
+                                    ))}
+                                </div>
+                            </motion.div>
+                        ))}
+                    </motion.div>
+                </motion.section>
+            </div>
+        </>
     );
 }
 
