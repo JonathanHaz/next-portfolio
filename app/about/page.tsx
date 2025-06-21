@@ -220,7 +220,7 @@ const AboutPage: React.FC = () => {
                                 Full-Stack Developer & Creative Thinker
                             </motion.h2>
                             <motion.p variants={textVariants}>
-                                Born in France, based in Israel, passionate about creating digital experiences that matter.
+                                Born in France, passionate about creating digital experiences that matter.
                             </motion.p>
                             
                             {/* Stats Section */}
@@ -334,35 +334,35 @@ const AboutPage: React.FC = () => {
                 </motion.section>
 
                 {/* Story Section */}
-                <motion.section 
-                    ref={storyRef}
+                {/* <motion.section  */}
+                    {/* ref={storyRef}
                     className={styles.storySection}
                     initial="hidden"
                     animate={storyInView ? "visible" : "hidden"}
-                    variants={containerVariants}
-                >
+                    variants={containerVariants} */}
+                {/* > */}
                     {/* Parallax Background Layer */}
-                    <motion.div 
-                        className={styles.storyBackgroundLayer}
-                        style={{ y: storyBackgroundY }}
-                    />
-                    <div className={styles.storyContent}>
-                        <motion.div className={styles.storyText} variants={textVariants}>
-                            <motion.h2 variants={textVariants}>My Journey</motion.h2>
-                            <motion.div className={styles.storyParagraphs} variants={containerVariants}>
-                                <motion.p variants={textVariants}>
-                                    I honed my coding skills at IITC College's bootcamp, where I discovered my true passion for full-stack development. This intensive program laid the foundation for my technical expertise and problem-solving approach.
-                                </motion.p>
-                                <motion.p variants={textVariants}>
-                                    My journey in tech began with a 6-month internship at Relyon.ai, where I gained invaluable real-world experience working with cutting-edge technologies including AI, voice recognition, and mobile platforms.
-                                </motion.p>
-                                <motion.p variants={textVariants}>
-                                    Today, I balance freelance projects creating custom portfolios for content creators and TikTok influencers while developing targeted landing pages for CRM and lead generation purposes.
-                                </motion.p>
-                            </motion.div>
-                        </motion.div>
-                    </div>
-                </motion.section>
+                    {/* <motion.div  */}
+                        {/* // className={styles.storyBackgroundLayer} */}
+                        {/* // style={{ y: storyBackgroundY }} */}
+                    {/* /> */}
+                    {/* <div className={styles.storyContent}> */}
+                        {/* <motion.div className={styles.storyText} variants={textVariants}> */}
+                            {/* <motion.h2 variants={textVariants}>My Journey</motion.h2> */}
+                            {/* <motion.div className={styles.storyParagraphs} variants={containerVariants}> */}
+                                {/* <motion.p variants={textVariants}> */}
+                                    {/* I honed my coding skills at IITC College's bootcamp, where I discovered my true passion for full-stack development. This intensive program laid the foundation for my technical expertise and problem-solving approach. */}
+                                {/* </motion.p> */}
+                                {/* <motion.p variants={textVariants}> */}
+                                    {/* My journey in tech began with a 6-month internship at Relyon.ai, where I gained invaluable real-world experience working with cutting-edge technologies including AI, voice recognition, and mobile platforms. */}
+                                {/* </motion.p> */}
+                                {/* <motion.p variants={textVariants}> */}
+                                    {/* Today, I balance freelance projects creating custom portfolios for content creators and TikTok influencers while developing targeted landing pages for CRM and lead generation purposes. */}
+                                {/* </motion.p> */}
+                            {/* </motion.div> */}
+                        {/* </motion.div> */}
+                    {/* </div> */}
+                {/* </motion.section> */}
 
                 {/* Personality Section */}
                 <motion.section 
