@@ -10,12 +10,13 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   metadataBase: new URL('https://jonathanhazan.dev'),
   title: {
-    default: "Jonathan Hazan • Creative Fullstack Developer & Designer",
+    default: "Jonathan Hazan • Freelance Fullstack Developer & Designer",
     template: "%s | Jonathan Hazan - Portfolio"
   },
   description: "Jonathan Hazan is a Fullstack Developer specializing in Next.js, React, TypeScript, and modern web design. Building innovative digital experiences and custom solutions. Available for freelance projects.",
   keywords: [
     "Jonathan Hazan",
+    "Jonathan Hazan freelance",
     "Jonathan Hazan developer",
     "Jonathan Hazan portfolio",
     "Jonathan Hazan fullstack",
@@ -65,22 +66,22 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://jonathanhazan.dev',
     siteName: 'Jonathan Hazan Portfolio',
-    title: 'Jonathan Hazan • Creative Fullstack Developer & Designer',
-    description: 'Jonathan Hazan is a Creative Fullstack Developer specializing in Next.js, React, TypeScript, and modern web design. Building innovative digital experiences and custom solutions.',
+    title: 'Jonathan Hazan • Freelance Fullstack Developer & Designer',
+    description: 'Jonathan Hazan is a Fullstack Developer specializing in Next.js, React, TypeScript, and modern web design. Building innovative digital experiences and custom solutions.',
     images: [
       {
         url: 'https://jonathanhazan.dev/profilePic.png',
         width: 1200,
         height: 630,
-        alt: 'Jonathan Hazan - Creative Fullstack Developer Portrait Photo',
+        alt: 'Jonathan Hazan - Fullstack Developer Portrait Photo',
         type: 'image/png',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Jonathan Hazan • Creative Fullstack Developer',
-    description: 'Jonathan Hazan is a Creative Fullstack Developer specializing in Next.js, React, TypeScript, and modern web design.',
+    title: 'Jonathan Hazan • Fullstack Developer',
+    description: 'Jonathan Hazan is a Freelance Fullstack Developer specializing in Next.js, React, TypeScript, and modern web design.',
     images: ['https://jonathanhazan.dev/profilePic.png'],
     creator: '@jonathanhazan',
   },
@@ -127,7 +128,7 @@ export default function RootLayout({
               "name": "Jonathan Hazan",
               "alternateName": ["Jonathan Hazan Developer", "Jonathan Hazan Fullstack"],
               "jobTitle": "Creative Fullstack Developer",
-              "description": "Jonathan Hazan is a Creative Fullstack Developer specializing in Next.js, React, TypeScript, and modern web design",
+              "description": "Jonathan Hazan is a Fullstack Developer specializing in Next.js, React, TypeScript, and modern web design",
               "url": "https://jonathanhazan.dev",
               "image": [
                 {
@@ -191,7 +192,7 @@ export default function RootLayout({
               "name": "Jonathan Hazan Portfolio",
               "alternateName": "Jonathan Hazan Developer Portfolio",
               "url": "https://jonathanhazan.dev",
-              "description": "Official portfolio website of Jonathan Hazan, Creative Fullstack Developer",
+              "description": "Official portfolio website of Jonathan Hazan, Freelance Fullstack Developer",
               "author": {
                 "@type": "Person",
                 "name": "Jonathan Hazan"
