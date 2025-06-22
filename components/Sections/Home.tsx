@@ -50,14 +50,19 @@ const Home: React.FC = () => {
                 style={{ y: contentY }}
             >
                 <div className={styles.touchContainer}>
-                    <Image src="/arrow.svg" alt="arrow" width={80} height={80} />
+                    <Image 
+                        src="/arrow.svg" 
+                        alt="Navigation arrow pointing to Jonathan Hazan's about section" 
+                        width={80} 
+                        height={80} 
+                    />
                     <div className={styles.touchWrapper}>
                         <Magnetic>
                             <button onClick={handleAboutClick} className={styles.touch}><h1>About Me</h1></button>
                         </Magnetic>
                         <Image
                             src="/mouse.svg"
-                            alt="mousedown"
+                            alt="Scroll down to view Jonathan Hazan's portfolio work"
                             width={80}
                             height={80}
                             style={{ cursor: 'pointer' }} 

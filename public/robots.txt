@@ -1,8 +1,23 @@
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://your-domain.com/sitemap.xml
+# Allow all search engines to crawl the site
+User-agent: Googlebot
+Allow: /
 
-# Crawl-delay
-Crawl-delay: 1 
+User-agent: Bingbot
+Allow: /
+
+# Sitemap location
+Sitemap: https://jonathanhazan.dev/sitemap.xml
+
+# Crawl-delay for better server performance
+Crawl-delay: 1
+
+# Allow indexing of images
+User-agent: Googlebot-Image
+Allow: /
+
+# Allow indexing of videos if any
+User-agent: Googlebot-Video
+Allow: / 
