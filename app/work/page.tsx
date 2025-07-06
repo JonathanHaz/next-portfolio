@@ -1,6 +1,7 @@
 'use client'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import Lenis from 'lenis';
 import styles from '@/styles/pages/workp.module.css';
 import Image from 'next/image';
 import Rounded from '@/components/Rounded';
@@ -12,12 +13,29 @@ interface Project {
   src: string;
   title2: string;
   href: string;
-  description: string;
-  tech: string[];
 }
 
 const WorkPage: React.FC = () => {
   const [modal, setModal] = useState({ active: false, index: 0 });
+
+  // Lenis smooth scroll setup
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    });
+
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
 
   const projects: Project[] = [
     {
@@ -25,58 +43,49 @@ const WorkPage: React.FC = () => {
       src: "voltridel.png",
       title2: "Fullstack App",
       href: "https://voltride-gules.vercel.app/",
-      description: "A modern website built with Next.js and Sanity CMS for content management, featuring dynamic content and responsive design.",
-      tech: ["Next.js", "TypeScript", "Sanity CMS"]
+    },
+    {
+      title1: "Pintrail",
+      src: "pintrail.jpg",
+      title2: "Fullstack App",
+      href: "https://pintrail-peach.vercel.app/",
     },
     {
       title1: "PokeCard",
       src: "pokemon.jpg",
       title2: "Landing Page",
       href: "https://pokemon-seven-pi.vercel.app",
-      description: "An interactive Pokemon card collection landing page featuring modern animations and responsive design.",
-      tech: ["Next.js", "Spline", "Framer Motion", "TypeScript"]
     },
     {
       title1: "Movie App",
       src: "movie.jpg",
       title2: "Frontend App", 
       href: "https://jonathanhaz.github.io/MovieProject",
-      description: "A movie discovery application with search functionality, ratings, and detailed movie information display.",
-      tech: ["JavaScript", "HTML", "CSS", "Movie API"]
     },
     {
       title1: "Market",
       src: "ecommerce.jpg",
       title2: "Fullstack App",
       href: "https://market-ecru-three.vercel.app",
-      description: "A full-featured e-commerce platform with shopping cart, user authentication, and payment integration.",
-      tech: ["Next.js", "Prisma", "Stripe", "Tailwind CSS"]
     },
     {
       title1: "Influencer Portfolio",
       src: "gaya.png",
       title2: "Portfolio",
       href: "https://gayaasher.netlify.app/",
-      description: "A portfolio website for a content creator, telling about her life, hobbies, and videos.",
-      tech: ["HTML", "CSS", "JavaScript"]
     },
     {
       title1: "Bfiber Landing Page",
       src: "bfiber.png",
       title2: "Landing Page",
       href: "https://www.kamazeole.co.il/landing-bezeq/",
-      description: "A Landing Page for CRM purposes.",
-      tech: ["HTML", "CSS", "JavaScript", "API Integration"]
     },
     {
       title1: "Resume Builder",
       src: "resume.jpg", 
       title2: "Fullstack App",
       href: "https://resume-558a0.web.app",
-      description: "A comprehensive resume builder application with real-time editing, multiple templates, and export functionality.",
-      tech: ["React", "Firebase", "JavaScript"]
     },
-    
   ];
 
   const containerVariants = {
@@ -137,7 +146,8 @@ const WorkPage: React.FC = () => {
                 index={index} 
                 title={project.title1} 
                 subtitle={project.title2}
-                setModal={setModal} 
+                setModal={setModal}
+                href={project.href}
               />
             </motion.div>
           ))}

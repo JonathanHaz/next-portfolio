@@ -21,11 +21,11 @@ const Work: React.FC = () => {
       alt: "Voltride electric vehicle platform website screenshot"
     },
     {
-      title1: "PokeCard",
-      src: "pokemon.jpg",
-      title2: "Landing Page",
-      href: "https://pokemon-seven-pi.vercel.app",
-      alt: "Pokemon card collection landing page screenshot"
+      title1: "Pintrail",
+      src: "pintrail.jpg",
+      title2: "Fullstack App",
+      href: "https://pintrail-peach.vercel.app/",
+      alt: "Pintrail landing page screenshot"
     },
     {
       title1: "Movie App",

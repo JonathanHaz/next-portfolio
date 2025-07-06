@@ -102,12 +102,12 @@ const AboutPage: React.FC = () => {
 
     // Simple card variants for other sections
     const cardVariants = {
-        hidden: { opacity: 0, y: 60, scale: 0.9 },
+        hidden: { opacity: 0.6, y: 60, scale: 0.9 },
         visible: { 
             opacity: 1, 
             y: 0,
             scale: 1,
-            transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }
+            transition: { duration: 0.3,  }
         }
     };
 
@@ -467,9 +467,9 @@ const AboutPage: React.FC = () => {
                         style={{ y: storyBackgroundY }}
                     />
                     <div className={styles.storyContent}>
-                        <motion.div className={styles.storyText} variants={containerVariants}>
+                        <motion.div className={styles.storyText}>
                             <motion.h2 variants={textVariants}>My Journey</motion.h2>
-                            <motion.div className={styles.storyParagraphs} variants={containerVariants}>
+                            <motion.div className={styles.storyParagraphs}>
                                 <motion.p variants={textVariants}>
                                     I honed my coding skills at IITC College's bootcamp, where I discovered my true passion for full-stack development. This intensive program laid the foundation for my technical expertise and problem-solving approach.
                                 </motion.p>

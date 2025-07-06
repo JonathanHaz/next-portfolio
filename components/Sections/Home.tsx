@@ -32,9 +32,7 @@ const Home: React.FC = () => {
         }
     };
 
-    const redirectToResume = () => {
-        window.open('https://www.dropbox.com/scl/fi/f587ix1gguloxglakk8e3/Jonathan-Hazan-CV-English.pdf?rlkey=xs7dpx5fy72xxv7trvsoas415&st=tk5tao2j&dl=0', '_blank');
-    };
+
    
     return (
         <div ref={containerRef} className={styles.container}>
@@ -71,12 +69,26 @@ const Home: React.FC = () => {
                     </div>
                 </div>
                 <div className={styles.text}>
-                    <h1>Developer & Designer</h1>
-                    <div className={styles.resumeWrapper}>
-                        <Rounded onClick={redirectToResume}>
-                            <p>Resume</p>
-                        </Rounded>
-                    </div>
+                    <h1>
+                        {"Developer & Designer".split("").map((letter, index) => (
+                            <motion.span
+                                key={index}
+                                style={{ display: "inline-block" }}
+                                animate={{
+                                    y: [0, -10, 0],
+                                }}
+                                transition={{
+                                    duration: 0.5,
+                                    repeat: Infinity,
+                                    repeatDelay: 8,
+                                    delay: index * 0.05,
+                                    ease: "easeInOut"
+                                }}
+                            >
+                                {letter === " " ? "\u00A0" : letter}
+                            </motion.span>
+                        ))}
+                    </h1>
                 </div>
             </motion.div>
             <Parallel />

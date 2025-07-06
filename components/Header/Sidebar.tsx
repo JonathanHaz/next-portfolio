@@ -16,12 +16,12 @@ const Sidebar: React.FC<SidebarProps> = ({ isActive, setIsActive }) => {
           href: "/",
         },
         {
-          title: "Work",
-          href: "/work",
+            title: "About",
+            href: "/about",
         },
         {
-          title: "About",
-          href: "/about",
+          title: "Work",
+          href: "/work",
         },
         {
           title: "Contact",
