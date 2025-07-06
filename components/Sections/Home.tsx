@@ -71,8 +71,7 @@ const Home: React.FC = () => {
                     </div>
                 </div>
                 <div className={styles.text}>
-                    <h1>Creative</h1>
-                    <h1>Fullstack Developer</h1>
+                    <h1>Developer & Designer</h1>
                     <div className={styles.resumeWrapper}>
                         <Rounded onClick={redirectToResume}>
                             <p>Resume</p>

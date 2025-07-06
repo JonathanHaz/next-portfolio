@@ -1,6 +1,7 @@
 "use client"
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
+import Lenis from 'lenis';
 import Magnetic from '@/components/Magnetic';
 import Rounded from '@/components/Rounded';
 import styles from '@/styles/pages/aboutp.module.css';
@@ -36,18 +37,60 @@ const AboutPage: React.FC = () => {
     const skillsInView = useInView(skillsRef, { once: true, amount: 0.3 });
     const experienceInView = useInView(experienceRef, { once: true, amount: 0.3 });
 
-    // Animation variants
+    // Lenis smooth scroll setup
+    useEffect(() => {
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        });
+
+        function raf(time: number) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+
+        requestAnimationFrame(raf);
+
+        return () => {
+            lenis.destroy();
+        };
+    }, []);
+
+    // Hero Section - Advanced Animation Variants
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.2,
-                delayChildren: 0.1
+                staggerChildren: 0.15,
+                delayChildren: 0.2,
+                when: "beforeChildren"
             }
         }
     };
 
+    // Advanced text variants for hero section
+    const heroTextVariants = {
+        hidden: { 
+            opacity: 0, 
+            y: 50,
+            scale: 0.95,
+            filter: "blur(8px)"
+        },
+        visible: { 
+            opacity: 1, 
+            y: 0,
+            scale: 1,
+            filter: "blur(0px)",
+            transition: { 
+                duration: 0.8, 
+                ease: [0.25, 0.46, 0.45, 0.94],
+                filter: { duration: 0.6 }
+            }
+        }
+    };
+
+    // Simple text variants for other sections
     const textVariants = {
         hidden: { opacity: 0, y: 30 },
         visible: { 
@@ -57,6 +100,7 @@ const AboutPage: React.FC = () => {
         }
     };
 
+    // Simple card variants for other sections
     const cardVariants = {
         hidden: { opacity: 0, y: 60, scale: 0.9 },
         visible: { 
@@ -67,10 +111,59 @@ const AboutPage: React.FC = () => {
         }
     };
 
+    // Advanced text reveal animation for hero titles
+    const titleVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.08,
+                delayChildren: 0.1
+            }
+        }
+    };
+
+    const letterVariants = {
+        hidden: { 
+            opacity: 0, 
+            y: 50,
+            rotateX: 90,
+            filter: "blur(4px)"
+        },
+        visible: { 
+            opacity: 1, 
+            y: 0,
+            rotateX: 0,
+            filter: "blur(0px)",
+            transition: { 
+                duration: 0.6, 
+                ease: [0.25, 0.46, 0.45, 0.94]
+            }
+        }
+    };
+
+    // Advanced image reveal for hero
+    const imageRevealVariants = {
+        hidden: { 
+            scale: 1.2,
+            opacity: 0,
+            filter: "blur(20px)"
+        },
+        visible: { 
+            scale: 1,
+            opacity: 1,
+            filter: "blur(0px)",
+            transition: { 
+                duration: 1.4, 
+                ease: [0.25, 0.46, 0.45, 0.94]
+            }
+        }
+    };
+
     const favoriteGames = [
-        { src: '/er.png', alt: 'Elden Ring', title: 'Elden Ring' },
-        { src: '/gt.png', alt: 'Ghost Of Tsushima', title: 'Ghost Of Tsushima' },
-        { src: '/ssdt.png', alt: 'Sekiro', title: 'Sekiro' }
+        { src: '/er.png', alt: 'Elden Ring', title: ' ' },
+        { src: '/gt.png', alt: 'Ghost Of Tsushima', title: '' },
+        { src: '/ssdt.png', alt: 'Sekiro', title: '' }
     ];
 
     const personalityCards = [
@@ -211,29 +304,53 @@ const AboutPage: React.FC = () => {
                     </div>
 
                     <div className={styles.heroContent}>
-                        <motion.div className={styles.heroText} variants={textVariants}>
-                            <motion.div className={styles.heroLabel} variants={textVariants}>
+                        <motion.div className={styles.heroText} variants={heroTextVariants}>
+                            <motion.div className={styles.heroLabel} variants={heroTextVariants}>
                                 <span>👋 Hello, I'm Jonathan</span>
                             </motion.div>
-                            <motion.h1 variants={textVariants}>About Me</motion.h1>
-                            <motion.h2 variants={textVariants}>
-                                Full-Stack Developer & Creative Thinker
+                            <motion.h1 
+                                variants={titleVariants}
+                                className={styles.heroTitle}
+                            >
+                                {"About Me".split("").map((letter, index) => (
+                                    <motion.span
+                                        key={index}
+                                        variants={letterVariants}
+                                        style={{ display: 'inline-block' }}
+                                    >
+                                        {letter === " " ? "\u00A0" : letter}
+                                    </motion.span>
+                                ))}
+                            </motion.h1>
+                            <motion.h2 
+                                variants={titleVariants}
+                                className={styles.heroSubtitle}
+                            >
+                                {"Full-Stack Developer & Creative Thinker".split(" ").map((word, index) => (
+                                    <motion.span
+                                        key={index}
+                                        variants={letterVariants}
+                                        style={{ display: 'inline-block', marginRight: '0.3em' }}
+                                    >
+                                        {word}
+                                    </motion.span>
+                                ))}
                             </motion.h2>
-                            <motion.p variants={textVariants}>
+                            <motion.p variants={heroTextVariants}>
                                 Born in France, passionate about creating digital experiences that matter.
                             </motion.p>
                             
                             {/* Stats Section */}
                             <motion.div className={styles.heroStats} variants={containerVariants}>
-                                <motion.div className={styles.statItem} variants={textVariants}>
+                                <motion.div className={styles.statItem} variants={heroTextVariants}>
                                     <span className={styles.statNumber}>6+</span>
                                     <span className={styles.statLabel}>Months at Relyon.ai</span>
                                 </motion.div>
-                                <motion.div className={styles.statItem} variants={textVariants}>
+                                <motion.div className={styles.statItem} variants={heroTextVariants}>
                                     <span className={styles.statNumber}>10+</span>
                                     <span className={styles.statLabel}>Projects Completed</span>
                                 </motion.div>
-                                <motion.div className={styles.statItem} variants={textVariants}>
+                                <motion.div className={styles.statItem} variants={heroTextVariants}>
                                     <span className={styles.statNumber}>2+</span>
                                     <span className={styles.statLabel}>Years Coding</span>
                                 </motion.div>
@@ -241,7 +358,7 @@ const AboutPage: React.FC = () => {
 
                             {/* CTA Buttons */}
                             <motion.div className={styles.heroActions} variants={containerVariants}>
-                                <motion.div variants={textVariants}>
+                                <motion.div variants={heroTextVariants}>
                                     <Rounded onClick={() => {
                                         const contactElement = document.getElementById('contact');
                                         if (contactElement) {
@@ -251,7 +368,7 @@ const AboutPage: React.FC = () => {
                                         <p>Let's Connect</p>
                                     </Rounded>
                                 </motion.div>
-                                <motion.div variants={textVariants}>
+                                <motion.div variants={heroTextVariants}>
                                     <Rounded onClick={() => {
                                         window.open('https://www.dropbox.com/scl/fi/f587ix1gguloxglakk8e3/Jonathan-Hazan-CV-English.pdf?rlkey=xs7dpx5fy72xxv7trvsoas415&st=tk5tao2j&dl=0', '_blank');
                                     }}>
@@ -268,6 +385,9 @@ const AboutPage: React.FC = () => {
                                         y: contentY,
                                     }}
                                     className={styles.parallaxImage}
+                                    initial="hidden"
+                                    animate="visible"
+                                    variants={imageRevealVariants}
                                 >
                                     <Image 
                                         src="/aboutimage.jpg" 
@@ -334,35 +454,35 @@ const AboutPage: React.FC = () => {
                 </motion.section>
 
                 {/* Story Section */}
-                {/* <motion.section  */}
-                    {/* ref={storyRef}
+                <motion.section 
+                    ref={storyRef}
                     className={styles.storySection}
                     initial="hidden"
                     animate={storyInView ? "visible" : "hidden"}
-                    variants={containerVariants} */}
-                {/* > */}
+                    variants={containerVariants}
+                >
                     {/* Parallax Background Layer */}
-                    {/* <motion.div  */}
-                        {/* // className={styles.storyBackgroundLayer} */}
-                        {/* // style={{ y: storyBackgroundY }} */}
-                    {/* /> */}
-                    {/* <div className={styles.storyContent}> */}
-                        {/* <motion.div className={styles.storyText} variants={textVariants}> */}
-                            {/* <motion.h2 variants={textVariants}>My Journey</motion.h2> */}
-                            {/* <motion.div className={styles.storyParagraphs} variants={containerVariants}> */}
-                                {/* <motion.p variants={textVariants}> */}
-                                    {/* I honed my coding skills at IITC College's bootcamp, where I discovered my true passion for full-stack development. This intensive program laid the foundation for my technical expertise and problem-solving approach. */}
-                                {/* </motion.p> */}
-                                {/* <motion.p variants={textVariants}> */}
-                                    {/* My journey in tech began with a 6-month internship at Relyon.ai, where I gained invaluable real-world experience working with cutting-edge technologies including AI, voice recognition, and mobile platforms. */}
-                                {/* </motion.p> */}
-                                {/* <motion.p variants={textVariants}> */}
-                                    {/* Today, I balance freelance projects creating custom portfolios for content creators and TikTok influencers while developing targeted landing pages for CRM and lead generation purposes. */}
-                                {/* </motion.p> */}
-                            {/* </motion.div> */}
-                        {/* </motion.div> */}
-                    {/* </div> */}
-                {/* </motion.section> */}
+                    <motion.div 
+                        className={styles.storyBackgroundLayer}
+                        style={{ y: storyBackgroundY }}
+                    />
+                    <div className={styles.storyContent}>
+                        <motion.div className={styles.storyText} variants={containerVariants}>
+                            <motion.h2 variants={textVariants}>My Journey</motion.h2>
+                            <motion.div className={styles.storyParagraphs} variants={containerVariants}>
+                                <motion.p variants={textVariants}>
+                                    I honed my coding skills at IITC College's bootcamp, where I discovered my true passion for full-stack development. This intensive program laid the foundation for my technical expertise and problem-solving approach.
+                                </motion.p>
+                                <motion.p variants={textVariants}>
+                                    My journey in tech began with a 6-month internship at Relyon.ai, where I gained invaluable real-world experience working with cutting-edge technologies including AI, voice recognition, and mobile platforms.
+                                </motion.p>
+                                <motion.p variants={textVariants}>
+                                    Today, I balance freelance projects creating custom portfolios for content creators and TikTok influencers while developing targeted landing pages for CRM and lead generation purposes.
+                                </motion.p>
+                            </motion.div>
+                        </motion.div>
+                    </div>
+                </motion.section>
 
                 {/* Personality Section */}
                 <motion.section 

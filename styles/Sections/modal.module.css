@@ -1,0 +1,86 @@
+.modalContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 360px;
+  overflow: hidden;
+  z-index: 1000;
+  pointer-events: none;
+  
+}
+
+.modalSlider {
+  position: relative;
+  height: 100%;
+  transition: top 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.modal {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background-color: #d4d4d4;
+  justify-content: center;
+}
+
+.modalImage {
+  width: 80%;
+  height: 60%;
+  object-fit: cover;
+}
+
+.cursor {
+  position: fixed;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #455ce9;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 999;
+  box-shadow: 0 5px 15px rgba(69, 92, 233, 0.4);
+}
+
+.cursorLabel {
+  position: fixed;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #455ce9;
+  box-shadow: 0 5px 15px rgba(69, 92, 233, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+  .modalContainer {
+    width: 300px;
+    height: 200px;
+  }
+  
+  .cursor {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .cursorLabel {
+    width: 60px;
+    height: 60px;
+    font-size: 12px;
+  }
+} 

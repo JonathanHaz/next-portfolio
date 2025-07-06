@@ -41,6 +41,12 @@
   padding: 0 1rem;
 }
 
+.projectsList {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
 .projectCard {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 20px;
@@ -188,6 +194,11 @@
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 2rem;
   }
+  
+  .projectsList {
+    padding: 0 1rem;
+  }
+  
   .rounded{
     width: 50%;
   }
@@ -196,6 +207,10 @@
 @media screen and (max-width: 767px) {
   .container {
     padding: 1rem;
+  }
+  
+  .projectsList {
+    padding: 0 0.5rem;
   }
   
   .title {

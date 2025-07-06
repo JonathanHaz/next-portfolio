@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import styles from '@/styles/pages/workp.module.css';
 import Image from 'next/image';
 import Rounded from '@/components/Rounded';
+import WorkProjectItem from '@/components/WorkProjectItem';
+import Modal from '@/components/Modal';
 
 interface Project {
   title1: string;
@@ -15,7 +17,7 @@ interface Project {
 }
 
 const WorkPage: React.FC = () => {
-  const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+  const [modal, setModal] = useState({ active: false, index: 0 });
 
   const projects: Project[] = [
     {
@@ -124,56 +126,24 @@ const WorkPage: React.FC = () => {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className={styles.projectsGrid}
+          className={styles.projectsList}
         >
           {projects.map((project, index) => (
             <motion.div
               key={project.title1}
               variants={projectVariants}
-              className={styles.projectCard}
-              onMouseEnter={() => setHoveredProject(index)}
-              onMouseLeave={() => setHoveredProject(null)}
-              onClick={() => window.open(project.href, '_blank')}
             >
-              <div className={styles.imageContainer}>
-                <Image
-                  src={`/${project.src}`}
-                  alt={project.title1}
-                  width={400}
-                  height={250}
-                  className={styles.projectImage}
-                />
-                <motion.div 
-                  className={styles.overlay}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: hoveredProject === index ? 1 : 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <span className={styles.viewProject}>View Project</span>
-                </motion.div>
-              </div>
-              
-              <div className={styles.projectInfo}>
-                <div className={styles.projectHeader}>
-                  <h3 className={styles.projectTitle}>{project.title1}</h3>
-                  <span className={styles.projectType}>{project.title2}</span>
-                </div>
-                
-                <p className={styles.projectDescription}>
-                  {project.description}
-                </p>
-                
-                <div className={styles.techStack}>
-                  {project.tech.map((tech, techIndex) => (
-                    <span key={techIndex} className={styles.techTag}>
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
+              <WorkProjectItem 
+                index={index} 
+                title={project.title1} 
+                subtitle={project.title2}
+                setModal={setModal} 
+              />
             </motion.div>
           ))}
         </motion.div>
+        
+        <Modal modal={modal} projects={projects} />
 
         <motion.div 
           initial={{ opacity: 0, y: 30 }}

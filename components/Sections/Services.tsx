@@ -1,101 +1,169 @@
-import { motion, useInView } from 'framer-motion';
-import { useRef, useEffect } from 'react';
+import { motion, useScroll, useTransform, useInView } from 'framer-motion';
+import { useRef, useEffect, useState } from 'react';
 import styles from '@/styles/Sections/services.module.css';
-import Magnetic from '../Magnetic';
-import Rounded from '../Rounded';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { TextPlugin } from 'gsap/TextPlugin';
+import { MorphSVGPlugin } from 'gsap/MorphSVGPlugin';
+
+// Register GSAP plugins
+if (typeof window !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger, TextPlugin);
+}
 
 const Services = () => {
-    const containerRef = useRef(null);
-    const isInView = useInView(containerRef, { once: true, amount: 0.3 });
+    const containerRef = useRef<HTMLDivElement>(null);
+    const titleRef = useRef<HTMLHeadingElement>(null);
+    const isInView = useInView(containerRef, { once: true, amount: 0.1 });
+    const [activeCard, setActiveCard] = useState<number | null>(null);
+    
+    // Smooth scroll progress
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start 0.9", "end 0.1"]
+    });
 
     const services = [
         {
             title: 'Portfolio Websites',
-            description: 'Professional portfolio websites to showcase your work and skills with modern animations and responsive design.',
-            features: ['Responsive Design', 'Modern Animations', 'SEO Optimized', 'Fast Loading'],
-            icon: '💼',
-            color: '#6366f1'
+            description: 'Professional portfolio websites that showcase your work with sophisticated animations and clean design.',
+            features: ['Advanced Animations', 'Clean Design', 'Performance Optimized', 'Modern Architecture'],
+            number: '01',
+            color: 'var(--primary)'
         },
         {
             title: 'Landing Pages',
-            description: 'High-converting landing pages designed to capture leads and drive conversions for your business.',
-            features: ['Conversion Focused', 'Mobile Optimized', 'A/B Test Ready', 'Analytics Integration'],
-            icon: '🚀',
-            color: '#f59e0b'
+            description: 'High-converting landing pages with smooth interactions and purposeful motion design.',
+            features: ['Conversion Focus', 'Smooth Interactions', 'Motion Design', 'User Experience'],
+            number: '02',
+            color: 'var(--secondary)'
         },
         {
-            title: 'Business Apps',
-            description: 'Custom web applications for small businesses like barber shops, nail salons, and service providers.',
-            features: ['Booking System', 'Client Management', 'Service Catalog', 'Mobile Friendly'],
-            icon: '✂️',
-            color: '#10b981'
+            title: 'Business Applications',
+            description: 'Custom web applications with sophisticated user interfaces and seamless functionality.',
+            features: ['Custom UI/UX', 'Seamless Flow', 'Advanced Features', 'Scalable Architecture'],
+            number: '03',
+            color: 'var(--primary)'
         },
         {
-            title: 'Business Websites with CMS',
-            description: 'Full-stack business websites with content management systems and database integration for easy content updates.',
-            features: ['Content Management', 'Database Integration', 'Admin Dashboard', 'Custom Features'],
-            icon: '🏢',
-            color: '#ef4444'
+            title: 'Full-Stack Solutions',
+            description: 'Complete web solutions with backend integration and content management systems.',
+            features: ['Full Integration', 'CMS Solutions', 'Database Design', 'API Development'],
+            number: '04',
+            color: 'var(--secondary)'
         }
     ];
 
-    // GSAP Animation for icons
+    // Advanced text animation with character splitting
     useEffect(() => {
-        const icons = document.querySelectorAll(`.${styles.serviceIcon}`);
+        if (!titleRef.current) return;
         
-        icons.forEach((icon, index) => {
-            const tl = gsap.timeline({ paused: true });
-            
-            tl.to(icon, {
-                scale: 1.2,
-                rotation: 10,
-                duration: 0.3,
-                ease: "power2.out"
-            })
-            .to(icon, {
-                scale: 1,
-                rotation: 0,
-                duration: 0.3,
-                ease: "power2.out"
-            });
+        const title = titleRef.current;
+        const text = title.textContent || '';
+        
+        // Split text into characters
+        title.innerHTML = text.split('').map((char, i) => 
+            `<span class="${styles.char}" style="--i:${i}">${char === ' ' ? '&nbsp;' : char}</span>`
+        ).join('');
 
-            icon.addEventListener('mouseenter', () => tl.play());
-        });
-
-        // Cleanup
-        return () => {
-            icons.forEach(icon => {
-                icon.removeEventListener('mouseenter', () => {});
-            });
-        };
+        // Animate characters
+        gsap.fromTo(`.${styles.char}`, 
+            { 
+                opacity: 0, 
+                y: 100,
+                rotationX: -90,
+                transformOrigin: '50% 50% -20px'
+            },
+            {
+                opacity: 1,
+                y: 0,
+                rotationX: 0,
+                duration: 0.8,
+                ease: 'power2.out',
+                stagger: 0.1,
+                scrollTrigger: {
+                    trigger: title,
+                    start: 'top 80%',
+                    toggleActions: 'play none none reverse'
+                }
+            }
+        );
     }, []);
 
-    // Container animation variants
-    const containerVariants = {
-        hidden: { opacity: 0 },
+    // Sophisticated service card animations
+    useEffect(() => {
+        const cards = gsap.utils.toArray(`.${styles.serviceCard}`);
+        
+        cards.forEach((card: any, index) => {
+            // Create morphing animation
+            gsap.set(card, {
+                clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)'
+            });
+
+            // Scroll-triggered reveal
+            gsap.to(card, {
+                clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+                duration: 1.2,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 85%',
+                    end: 'bottom 60%',
+                    toggleActions: 'play none none reverse'
+                }
+            });
+
+            // Advanced hover morphing
+            card.addEventListener('mouseenter', () => {
+                gsap.to(card, {
+                    scale: 1.02,
+                    y: -8,
+                    duration: 0.6,
+                    ease: 'power2.out'
+                });
+                
+                gsap.to(card.querySelector(`.${styles.serviceNumber}`), {
+                    scale: 1.2,
+                    rotation: 10,
+                    duration: 0.4,
+                    ease: 'back.out(1.7)'
+                });
+            });
+
+            card.addEventListener('mouseleave', () => {
+                gsap.to(card, {
+                    scale: 1,
+                    y: 0,
+                    duration: 0.6,
+                    ease: 'power2.out'
+                });
+                
+                gsap.to(card.querySelector(`.${styles.serviceNumber}`), {
+                    scale: 1,
+                    rotation: 0,
+                    duration: 0.4,
+                    ease: 'back.out(1.7)'
+                });
+            });
+        });
+
+        return () => ScrollTrigger.getAll().forEach(st => st.kill());
+    }, []);
+
+    // Smooth progress bar animation
+    const progressWidth = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
+
+    // Professional text reveal animation
+    const textReveal = {
+        hidden: { 
+            opacity: 0,
+            y: 50,
+            clipPath: 'polygon(0 0, 100% 0, 100% 0, 0 0)'
+        },
         visible: {
             opacity: 1,
-            transition: {
-                staggerChildren: 0.2,
-                delayChildren: 0.1
-            }
-        }
-    };
-
-    // Card animation variants
-    const cardVariants = {
-        hidden: { 
-            opacity: 0, 
-            y: 60,
-            scale: 0.9,
-            rotateX: -15
-        },
-        visible: { 
-            opacity: 1, 
             y: 0,
-            scale: 1,
-            rotateX: 0,
+            clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
             transition: {
                 duration: 0.8,
                 ease: [0.25, 0.46, 0.45, 0.94]
@@ -103,126 +171,98 @@ const Services = () => {
         }
     };
 
-    // Header text animation variants
-    const textVariants = {
-        hidden: { 
-            opacity: 0, 
-            y: 30,
-            filter: "blur(10px)"
-        },
-        visible: { 
-            opacity: 1, 
-            y: 0,
-            filter: "blur(0px)",
-            transition: {
-                duration: 0.6,
-                ease: "easeOut"
-            }
-        }
-    };
-
-    // Feature tag animations
-    const featureVariants = {
-        hidden: { opacity: 0, scale: 0.8 },
-        visible: (i: number) => ({
+    // Stagger animation for cards
+    const containerAnimation = {
+        hidden: { opacity: 0 },
+        visible: {
             opacity: 1,
-            scale: 1,
             transition: {
-                delay: i * 0.1,
-                duration: 0.4,
-                ease: "backOut"
+                staggerChildren: 0.15,
+                delayChildren: 0.2
             }
-        })
-    };
-
-    const handleContactClick = () => {
-        const contactElement = document.getElementById('contact');
-        if (contactElement) {
-            const yOffset = -80;
-            const y = contactElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
-            window.scrollTo({ top: y, behavior: 'smooth' });
         }
     };
 
     return (
-        <motion.div 
+        <motion.section 
             ref={containerRef}
             className={styles.container}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
-            variants={containerVariants}
+            variants={containerAnimation}
         >
-            <motion.div className={styles.header} variants={textVariants}>
-                <motion.h1 variants={textVariants}>Services</motion.h1>
-                <motion.p variants={textVariants}>
-                    I help businesses and individuals create their digital presence with custom web solutions
+            {/* Progress indicator */}
+            <div className={styles.progressContainer}>
+                <motion.div 
+                    className={styles.progressBar}
+                    style={{ width: progressWidth }}
+                />
+            </div>
+
+            <div className={styles.header}>
+                <h1 ref={titleRef} className={styles.title}>
+                    Services
+                </h1>
+                <motion.p 
+                    className={styles.subtitle}
+                    variants={textReveal}
+                >
+                    Crafting digital experiences with purposeful motion and clean design
                 </motion.p>
-            </motion.div>
-            
-            <motion.div className={styles.servicesGrid} variants={containerVariants}>
+            </div>
+
+            <div className={styles.servicesGrid}>
                 {services.map((service, index) => (
                     <motion.div
                         key={index}
                         className={styles.serviceCard}
-                        variants={cardVariants}
-                       
-                        whileTap={{ scale: 0.98 }}
+                        variants={textReveal}
+                        onHoverStart={() => setActiveCard(index)}
+                        onHoverEnd={() => setActiveCard(null)}
                     >
-                            <motion.div 
-                                className={styles.serviceIcon}
-                                style={{ background: `linear-gradient(135deg, ${service.color}, ${service.color}90)` }}
-                                whileHover={{ 
-                                    boxShadow: `0 10px 30px ${service.color}40`,
-                                    transition: { duration: 0.3 }
-                                }}
-                            >
-                                <span>{service.icon}</span>
-                            </motion.div>
+                        <div className={styles.cardContent}>
+                            <div className={styles.serviceNumber}>
+                                {service.number}
+                            </div>
+                            
+                            <h3 className={styles.serviceTitle}>
+                                {service.title}
+                            </h3>
+                            
+                            <p className={styles.serviceDescription}>
+                                {service.description}
+                            </p>
+                            
+                            <div className={styles.features}>
+                                {service.features.map((feature, i) => (
+                                    <span 
+                                        key={i} 
+                                        className={styles.feature}
+                                        style={{ 
+                                            '--delay': `${i * 0.1}s`,
+                                            '--color': service.color
+                                        } as React.CSSProperties}
+                                    >
+                                        {feature}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
                         
-                        <motion.h3
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 0.3 + index * 0.1, duration: 0.6 }}
-                        >
-                            {service.title}
-                        </motion.h3>
-                        
-                        <motion.p
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 0.4 + index * 0.1, duration: 0.6 }}
-                        >
-                            {service.description}
-                        </motion.p>
-                        
-                        <motion.div 
-                            className={styles.features}
-                            initial="hidden"
-                            animate="visible"
-                        >
-                            {service.features.map((feature, i) => (
-                                <motion.span 
-                                    key={i} 
-                                    className={styles.feature}
-                                    variants={featureVariants}
-                                    custom={i}
-                                    whileHover={{ 
-                                        scale: 1.05,
-                                        backgroundColor: service.color + '20',
-                                        color: service.color,
-                                        transition: { duration: 0.2 }
-                                    }}
-                                >
-                                    {feature}
-                                </motion.span>
-                            ))}
-                        </motion.div>
+                        {/* Morphing background shape */}
+                        <div 
+                            className={styles.morphingShape}
+                            style={{ 
+                                '--service-color': service.color,
+                                opacity: activeCard === index ? 0.1 : 0
+                            } as React.CSSProperties}
+                        />
                     </motion.div>
                 ))}
-            </motion.div>
+            </div>
 
-        
-        </motion.div>
+
+        </motion.section>
     );
 };
 
