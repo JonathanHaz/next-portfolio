@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+::-webkit-scrollbar {
+  display: none;
+}
 
 body {
   margin: 0;
@@ -6,6 +9,7 @@ body {
   color: var(--text);
   background-color: var(--background);
   font-family: 'DM Sans', sans-serif;
+
 }
 
 body, html{
