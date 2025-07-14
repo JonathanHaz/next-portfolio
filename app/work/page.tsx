@@ -74,18 +74,7 @@ const WorkPage: React.FC = () => {
       title2: "Portfolio",
       href: "https://gayaasher.netlify.app/",
     },
-    {
-      title1: "Bfiber Landing Page",
-      src: "bfiber.png",
-      title2: "Landing Page",
-      href: "https://www.kamazeole.co.il/landing-bezeq/",
-    },
-    {
-      title1: "Resume Builder",
-      src: "resume.jpg", 
-      title2: "Fullstack App",
-      href: "https://resume-558a0.web.app",
-    },
+   
   ];
 
   const containerVariants = {

@@ -1016,6 +1016,7 @@
     overflow: hidden;
     pointer-events: none;
     opacity: 0;
+    
     cursor: pointer;
 }
 
@@ -1040,6 +1041,7 @@
     font-size: 1.1rem;
     font-weight: 600;
     margin: 0;
+
 }
 
 .storyBadge {
@@ -1054,11 +1056,16 @@
 
 .storyContent {
     padding: 20px;
+
+}
+.storyContent h2 {
+    color: white;
+
 }
 
 .storyContent p {
     font-size: 0.9rem;
-    color: var(--text--black);
+    color: white;
     line-height: 1.6;
     margin: 0 0 15px 0;
     font-style: italic;
