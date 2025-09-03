@@ -21,6 +21,13 @@ const Work: React.FC = () => {
       alt: "Voltride electric vehicle platform website screenshot"
     },
     {
+      title1: "OtakuDrop",
+      src: "otaku.png",
+      title2: "Fullstack App",
+      href: "https://otakudrop.vercel.app/",
+      alt: "E-commerce OtakuDrop screenshot"
+    },
+    {
       title1: "Pintrail",
       src: "pintrail.jpg",
       title2: "Fullstack App",
@@ -34,13 +41,6 @@ const Work: React.FC = () => {
       href: "https://jonathanhaz.github.io/MovieProject",
       alt: "Movie database application interface screenshot"
 
-    },
-    {
-      title1: "Market",
-      src: "ecommerce.jpg",
-      title2: "Fullstack App",
-      href: "https://market-ecru-three.vercel.app",
-      alt: "E-commerce marketplace application screenshot"
     },
 
   ];

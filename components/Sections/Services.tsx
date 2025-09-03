@@ -1,14 +1,12 @@
-import { motion, useScroll, useTransform, useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
 import styles from '@/styles/Sections/services.module.css';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { TextPlugin } from 'gsap/TextPlugin';
-import { MorphSVGPlugin } from 'gsap/MorphSVGPlugin';
 
 // Register GSAP plugins
 if (typeof window !== 'undefined') {
-    gsap.registerPlugin(ScrollTrigger, TextPlugin);
+    gsap.registerPlugin(TextPlugin);
 }
 
 const Services = () => {
@@ -16,12 +14,6 @@ const Services = () => {
     const titleRef = useRef<HTMLHeadingElement>(null);
     const isInView = useInView(containerRef, { once: true, amount: 0.1 });
     const [activeCard, setActiveCard] = useState<number | null>(null);
-    
-    // Smooth scroll progress
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ["start 0.9", "end 0.1"]
-    });
 
     const services = [
         {
@@ -80,39 +72,16 @@ const Services = () => {
                 rotationX: 0,
                 duration: 0.8,
                 ease: 'power2.out',
-                stagger: 0.1,
-                scrollTrigger: {
-                    trigger: title,
-                    start: 'top 80%',
-                    toggleActions: 'play none none reverse'
-                }
+                stagger: 0.1
             }
         );
     }, []);
 
-    // Sophisticated service card animations
+    // Service card hover animations
     useEffect(() => {
         const cards = gsap.utils.toArray(`.${styles.serviceCard}`);
         
         cards.forEach((card: any, index) => {
-            // Create morphing animation
-            gsap.set(card, {
-                clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)'
-            });
-
-            // Scroll-triggered reveal
-            gsap.to(card, {
-                clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
-                duration: 1.2,
-                ease: 'power2.out',
-                scrollTrigger: {
-                    trigger: card,
-                    start: 'top 85%',
-                    end: 'bottom 60%',
-                    toggleActions: 'play none none reverse'
-                }
-            });
-
             // Advanced hover morphing
             card.addEventListener('mouseenter', () => {
                 gsap.to(card, {
@@ -146,24 +115,17 @@ const Services = () => {
                 });
             });
         });
-
-        return () => ScrollTrigger.getAll().forEach(st => st.kill());
     }, []);
-
-    // Smooth progress bar animation
-    const progressWidth = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
 
     // Professional text reveal animation
     const textReveal = {
         hidden: { 
             opacity: 0,
-            y: 50,
-            clipPath: 'polygon(0 0, 100% 0, 100% 0, 0 0)'
+            y: 50
         },
         visible: {
             opacity: 1,
             y: 0,
-            clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
             transition: {
                 duration: 0.8,
                 ease: [0.25, 0.46, 0.45, 0.94]
@@ -191,14 +153,6 @@ const Services = () => {
             animate={isInView ? "visible" : "hidden"}
             variants={containerAnimation}
         >
-            {/* Progress indicator */}
-            <div className={styles.progressContainer}>
-                <motion.div 
-                    className={styles.progressBar}
-                    style={{ width: progressWidth }}
-                />
-            </div>
-
             <div className={styles.header}>
                 <h1 ref={titleRef} className={styles.title}>
                     Services
@@ -260,8 +214,6 @@ const Services = () => {
                     </motion.div>
                 ))}
             </div>
-
-
         </motion.section>
     );
 };

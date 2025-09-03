@@ -45,6 +45,12 @@ const WorkPage: React.FC = () => {
       href: "https://voltride-gules.vercel.app/",
     },
     {
+      title1: "OtakuDrop",
+      src: "otaku.png",
+      title2: "Fullstack App",
+      href: "https://otakudrop.vercel.app/",
+    },
+    {
       title1: "Pintrail",
       src: "pintrail.jpg",
       title2: "Fullstack App",

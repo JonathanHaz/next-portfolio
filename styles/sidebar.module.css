@@ -70,3 +70,35 @@
 
 }
 
+/* Mobile-specific styles to fix Contact text alignment */
+@media screen and (max-width: 800px) {
+    .menu {
+        width: 70%;
+    }
+    
+    .menu .body {
+        padding: 60px 40px;
+    }
+    
+    .menu .body .nav {
+        font-size: 42px;
+    }
+    
+    .menu .body .nav ul li {
+        margin-bottom: 25px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .menu .body .nav ul li::before {
+        margin-right: 15px;
+        flex-shrink: 0;
+    }
+    
+    .menu .body .nav a {
+        display: inline-block;
+        line-height: 1.2;
+    }
+}
+
+
